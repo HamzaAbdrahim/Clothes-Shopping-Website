@@ -1,0 +1,108 @@
+@use "../../abstracts" as b;
+@use "../../components" as c;
+
+.Curddate {
+    margin-top: 2rem;
+    .titel {
+        @include b.heading_3();
+    }
+    table {
+    width: 100%;
+    color: #333;
+    font-size: 1.1rem;
+    text-align: left;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-weight: bold;
+    overflow-x: auto;
+    img {
+    max-width:10rem;
+    }
+    .size_container {
+    li {
+    @include b.link();
+    padding: .5rem;
+    background-color: map-get(b.$colors, gray_two );
+}
+    }
+    .color_container {
+    .color_item {
+    display: inline-block;
+    @include c.color()
+    }
+    }
+    .product_img {
+        padding: 0 !important;
+    }
+    thead {
+    th {
+    background-color:  map-get(b.$colors, blacky) !important;
+    color: map-get(b.$colors, whity) ;
+    }
+    }
+    th {
+        background-color:  map-get(b.$colors, whity);
+        color: map-get(b.$colors, blacky);
+        padding: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border-top: 1px solid #fff;
+        border-bottom: 1px solid #ccc;
+        text-align: center;
+        }
+    tbody th {
+        border-right: 1px solid #ccc;
+    }
+
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+	/* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+	thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	.id {
+    background-color: map-get(b.$colors, blacky);color: map-get(b.$colors, whity );
+    }
+	tr { border: 1px solid #ccc; }
+	
+	td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+	}
+	
+	td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+	
+}
+    } 
+    .Buttons {
+    .delet_item {
+    @include c.button_2(map-get(b.$colors , dark-red))
+    }
+    .edit_button {
+    @include c.button_2(map-get(b.$colors , primery))
+    }
+    }
+}

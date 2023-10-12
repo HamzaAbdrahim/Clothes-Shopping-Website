@@ -1,0 +1,47 @@
+@use "../abstracts" as b;
+@use "../components" as c;
+
+
+.imges_container {
+    max-width: 100%;
+    height: 50rem;
+    .background_img {
+       width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        cursor: pointer;
+        transition: 1.5s ease-in-out ;
+        &:hover {
+            .prev,
+            .next {
+                opacity: 1;
+            }
+        }
+        .prev,
+        .next {
+            opacity: 0;
+            transition: opacity .5s linear;
+                position: absolute;
+                top: calc(50% + 1.5rem);
+                transform: translateX(0) translateY(-50%);
+                font-size: 2rem;
+                padding: 1.5rem;
+                background-color:#f2f0f17d;
+                color: white;
+                cursor: pointer;
+                svg {
+                    width: 3rem;
+                    height: 3rem;
+                }
+            }
+        .prev {
+            left: 1rem;
+        }
+        .next {
+            right: 1rem;
+        }
+    }
+
+}

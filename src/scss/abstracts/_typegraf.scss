@@ -1,0 +1,53 @@
+
+@mixin link() {
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+font-family: 'Cairo', sans-serif;
+} 
+@mixin link_2() {
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%;
+} 
+
+@mixin link_two($color:black) {
+font-size: 1.5rem;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+color: $color;
+}
+
+@mixin heading_3 () {
+    font-weight: bold;
+    font-size: 2rem;
+    line-height: 120%;
+    text-decoration: underline;
+}
+
+@mixin heading_1 () {
+    text-align: center;
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+@mixin discount() {
+    color: #B5B3B3;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-decoration: line-through;
+}
+
+@mixin heading_4($color:"") {
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    color: $color;
+}

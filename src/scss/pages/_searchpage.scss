@@ -1,0 +1,67 @@
+@use "../abstracts" as b;
+@use "../components" as c;
+@use "../utilities" as u;
+
+
+.Searchpage {
+    @include  c.padding();
+    .Searchpage_titel {
+        @include b.heading_3;
+    }
+    .producr_container {
+        @include u.grid(350px , 1rem);
+        margin: 2rem 0;
+        .product_cart {
+    border: 1px solid rgba(0, 0, 0, 0.26);
+    border-radius: 1rem;
+    background: #FFF;
+    box-shadow: 9px 12px 20px 0px rgba(0, 0, 0, 0.25);
+    padding:1rem;
+    transition: .5s ease-in-out;
+    width: 70%;
+        cursor: pointer;
+        &:hover {
+        transform: translateY(-1rem);
+    }
+    .product_img {
+        width:100%;
+        margin-bottom: 1rem;
+        transition: 0.5s;
+    }
+    .cart_holder {
+    .cart_price {
+        @include b.heading_4();
+        color: map-get(b.$colors, blacky );
+        text-align: start;
+        .discount {
+            margin-right: 1rem;
+            @include b.discount();
+    
+        }
+    } 
+    .cart_titel {
+        color: map-get(b.$colors, blacky );
+        font-size: 1.5rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        letter-spacing: 1px;
+        text-align: justify;
+        margin-bottom: 1rem;
+    }
+    }
+    
+    
+        .addtocart {
+        @include c.button_2(map-get(b.$colors , blacky));
+        width: 100% !important;
+        }
+        }
+        
+        }
+    .not_found {
+    margin:  5rem auto ;
+    @include b.link_two;
+    text-align: center;
+    }
+}

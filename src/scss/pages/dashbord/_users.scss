@@ -1,0 +1,29 @@
+@use "../../abstracts" as b;
+@use "../../components" as c;
+
+
+.Users {
+    margin:  1rem 1.5rem;
+    width: 100%;
+    .titel {
+        @include b.heading_3();
+    }
+    .user_container {
+    @include c.wrap(1rem);
+    margin-top: 3rem;
+    .User_cart {
+    text-align: center;
+    padding: 1rem;
+    background-color: map-get(b.$colors, whity );
+    .frind_name {
+        @include b.link_two();
+        margin-top: .5rem;
+        text-decoration: underline;
+        font-weight: bold;
+    }
+    .frind_role {
+        @include b.link_2();
+    }
+    }
+    }
+}

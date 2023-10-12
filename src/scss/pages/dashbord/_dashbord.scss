@@ -1,0 +1,12 @@
+@use "../../abstracts" as b;
+@use "../../components" as c;
+
+.dashbord {
+    background-color: map-get(b.$colors, dash_color );
+    display: flex;
+    align-items: start;
+    .outlet {
+    margin:  1rem 1.5rem;
+    width: 100%;
+    }
+}

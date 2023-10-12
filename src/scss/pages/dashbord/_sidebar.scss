@@ -1,0 +1,54 @@
+@use "../../abstracts" as b;
+@use "../../components" as c;
+
+$rduis:2rem;
+$transtion:.5s ease-in;
+
+
+.side_bar {
+    width:15rem;
+    background-color: map-get(b.$colors, whity );
+    border-radius: $rduis;
+    padding: 1.5rem;
+    height:100%;
+    margin: 1rem 1rem 1rem 0;
+    .logo {
+    height: 3rem;
+    margin-bottom: 2rem;
+    }
+    .sidebar_list {
+    .item {
+    @include c.flex-space(space-between);
+    padding: 1rem .5rem;
+    border-radius: calc($rduis / 2);
+    transition: $transtion;
+    cursor: pointer;
+    &:hover {
+    background-color: map-get(b.$colors, dash_color );
+    }
+    .item_discrption {
+    @include b.link_2();
+    color: map-get(b.$colors, blacky );
+    }
+    .item_img {
+    height: 1.2rem;
+    }
+    }
+    @media (max-width: map-get(b.$breackpoints , sm)) {
+    .item {
+    justify-content: center !important;
+    .item_discrption {
+    display: none;
+    }
+    .item_img {
+    padding: 1rem;
+    border-radius:calc($rduis / 2) ;
+    transition: $transtion;
+    &:hover {
+    background-color: map-get(b.$colors, dash_color );
+    }
+    }                
+}
+    }
+    }
+    }

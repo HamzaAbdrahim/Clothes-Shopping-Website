@@ -1,0 +1,65 @@
+@use "../../abstracts" as b;
+@use "../../components" as c;
+@use "../../utilities" as u;
+
+
+.Order {
+    .titel {
+        @include b.heading_3();
+    }
+    .order_container {
+        @include u.grid(350px  , 1rem);
+        @media (max-width:map-get(b.$breackpoints , md)) {
+        @include u.grid(200px  , 1rem);
+        }
+    margin-top: 3rem;
+    .order_cart {
+        padding: 1rem;
+        background-color: map-get(b.$colors ,  whity );
+        border-radius: 1rem;
+        text-align: center;
+        overflow: hidden;
+        .order-titel {
+        @include b.heading_3();
+        }
+        .order_id {
+        @include b.heading_4();
+        background-color: map-get(b.$colors, gray_one );
+        padding: 1rem ;
+        margin: 1rem;
+        }
+        .order {
+        background-color:map-get(b.$colors, gray_one );
+        padding: 1rem ;
+        margin-top: 1rem;
+        @include b.link_2();
+        @include c.flex-space(space-between , 1rem);
+        flex-wrap: wrap;
+        margin-top:1rem;
+        }
+        .coustmer_note {
+        text-align: center;
+        @include b.heading_4();
+        line-height: 2;
+        width: 100%;
+            span {
+                padding: .5rem;
+                border-radius: 1rem;
+                border:2px solid map-get(b.$colors, blacky ) ;
+                display: block;
+            }
+        }
+        .Yes , 
+        .No {
+            width: 100%
+        }
+        .Yes {
+            @include c.button(map-get(b.$colors ,greeny ) , map-get(b.$colors , whity));
+        }
+        .No {
+        margin: 1rem 0 ;
+        @include c.button(map-get(b.$colors ,dark-red ) , map-get(b.$colors , whity));
+        }
+    }
+    }
+}

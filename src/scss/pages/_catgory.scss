@@ -1,0 +1,40 @@
+@use "../abstracts" as b;
+@use "../components" as c;
+
+.Catogray {
+    @include  c.padding();
+    border-radius: 2.5rem;
+    background-color: #F0F0F0;
+    padding: 4.37rem 2rem;
+    .titel {
+        @include b.heading_3();
+        text-align: center;
+    }
+    .catogray_container {
+        display: flex;
+        width: 100%;
+        margin-top: 3rem;
+        gap: 1rem;
+        flex-wrap: wrap;
+        .catogray_cart {
+    background-color: map-get(b.$colors,whity);
+    cursor: pointer;
+    height: 15rem;
+    position: relative;
+    border-radius: 2rem;
+    overflow: hidden;
+    .catogray_titel {
+    @include b.heading_3();
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    }
+    @media (max-width:map-get(b.$breackpoints , lg)) {
+    width: 100% !important;
+    .catogray_titel {
+    right:0;
+    }
+    }
+    }
+    }
+}

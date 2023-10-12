@@ -1,0 +1,74 @@
+@use "../../../abstracts" as b;
+@use "../../../components" as c;
+@use "../../../utilities" as u;
+
+$backgroundcolor:#F6FFF9;
+$bordercolor:#48C1B5;
+$padding:1.25rem;
+$pargarfcolor:#2F3F53;
+$titel_color:#27303A;
+.active {
+    animation-name:wiggle;
+    left:50% !important;
+}
+.Accept_tap {
+border-radius: 0.75rem;
+border: 1px solid $bordercolor;
+background: $backgroundcolor;
+box-shadow: 0px 4px 16px 0px rgba(16, 11, 39, 0.08);
+padding:$padding ;
+@include c.flex-space(space-between ,1rem , start);
+position: fixed;
+top: 50%;
+left:-50%;
+transform: translate(-50% , -50%);
+transition: 200ms;
+z-index: 20;
+.close {
+  cursor: pointer;
+}
+.content {
+    h1 {
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 140%; /* 1.225rem */
+    text-transform: capitalize;
+    margin-bottom: .5rem;
+    color: $titel_color;
+    }
+    p {
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160%;
+    color: $pargarfcolor;
+    }
+}
+}
+
+  
+  /* Keyframes */
+  @keyframes wiggle {
+    0%, 7% {
+      transform: rotateZ(0);
+    }
+    15% {
+      transform: rotateZ(-15deg);
+    }
+    20% {
+      transform: rotateZ(10deg);
+    }
+    25% {
+      transform: rotateZ(-10deg);
+    }
+    30% {
+      transform: rotateZ(6deg);
+    }
+    35% {
+      transform: rotateZ(-4deg);
+    }
+    40%, 100% {
+      transform: rotateZ(0);
+    }
+  }

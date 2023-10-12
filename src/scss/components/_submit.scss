@@ -1,0 +1,6 @@
+@use "../abstracts" as b;
+@use "./button" as c;
+
+input[type="submit"] {
+    @include c.button_2(map-get(b.$colors , blacky));
+}

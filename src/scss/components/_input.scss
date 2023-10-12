@@ -1,0 +1,26 @@
+@use "../abstracts" as b;
+
+
+
+@mixin input() {
+    padding:1.5rem;
+    background-color: map-get(b.$colors, lightgray_one );
+    border-radius: 3.875rem;
+    @include b.link_two(map-get(b.$colors, lightgray_two ));
+}
+
+.label_sherd {
+    color: map-get(b.$colors, dark-red );
+    font-size:1rem;
+    font-weight: 800;
+    line-height: 120%;
+.input_sherd {
+    border-radius:.3rem;
+    @include b.link_2();
+    border: 1px solid #acbdcd;
+    padding:.4rem;
+    font-family: 'Cairo', sans-serif;
+    height: 1.5rem;
+    margin-top: .5rem;
+}
+}

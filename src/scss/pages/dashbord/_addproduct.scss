@@ -1,0 +1,207 @@
+@use "../../abstracts" as b;
+@use "../../components" as c;
+
+$shdow: 0px 4px 10px 3px rgba(0, 0, 0, 0.25);
+.Addproduct {
+    margin: 1rem 1.5rem;
+    .titel {
+    @include b.heading_3();
+    margin-bottom:2rem;
+    }
+    .add_container {
+    padding: 1rem ;
+    box-shadow:$shdow;
+    background-color: map-get(b.$colors, whity );
+    width: 100%;
+    @include c.flex-space(space-between , 1rem);
+    border-radius: 1rem;
+    flex-wrap: wrap;
+    margin-left: auto;
+    .add_titel {
+    @include b.heading_4();
+    text-decoration: underline;
+    }
+    }
+    .Addform {
+    position: fixed;
+    z-index: 2;
+    @include c.center();
+    width: 65%;
+    height:80%;
+    overflow-y: scroll;
+    background: map-get(b.$colors, whity);
+    box-shadow:$shdow;
+    transition: ease-in-out 200ms ;
+    .err_tab {
+    border-radius: 0.5625rem;
+    background: #FF3A41;
+    width: 30%;
+    height: 5%;
+    position: fixed;
+    left:50%;
+    padding: .5rem;
+    top: .5rem;
+    transform: translate(-50%);
+    @include c.align_item(1rem);
+    img {
+        padding: .5rem;
+    border-radius: 50%;
+    background-color: map-get(b.$colors, whity);
+    height: 1rem
+    }
+    p {
+    @include b.link();
+    color: map-get(b.$colors, whity);
+    text-align: center;
+    }
+    }
+    .Closetap {
+    box-shadow:$shdow;
+    background-color: map-get(b.$colors, gray_two );
+    height: 3.75rem;
+    width:100%; 
+    @include c.flex-space(space-between , 1rem);
+    img {
+    width: 1.1875rem;
+    height: 1.125rem;
+    margin-left: 1rem;
+    cursor: pointer;
+    }
+    .form_titel{
+        @include b.link();
+        margin-right: 1rem;
+        user-select: none;
+    }
+    }
+    Form {
+        .product_name,
+        .product_page {
+            width:100%;
+            input {
+            width:96%;
+            }
+        }
+    .price_titel {
+        padding: 1.5rem 1rem;
+        @include c.flex-space(space-between , 1rem);
+        @media (max-width:map-get(b.$breackpoints ,sm)) {
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+    .select_option {
+    width: 80%;
+    margin: auto;
+    padding: .5rem ;
+    border:1px solid rgb(219, 229, 230);
+    display: block;
+    position: relative;
+    margin-bottom: 1rem;
+    @include c.flex-space(space-between , 1rem);
+    .must_filed {
+        @include b.link();
+        color: map-get(b.$colors, dark-red)
+    }
+    .size_list {
+    @include c.align_item(1rem);
+    width: 100%;
+    flex-wrap: wrap; 
+    .size_defult {
+        @include b.link_2();
+    }
+    .size {
+    @include c.flex-space(center);
+    padding: .250rem 1rem;
+    background-color: #f0f4f4;
+    @include b.link();
+    }
+    }
+
+    .dark_arrwo {
+    transform: rotate(180deg);
+    padding-right: .5rem;
+    border-right: 1px solid rgb(219, 229, 230);
+    transition: .5s;
+    @include c.mobil_hidden();
+    cursor: pointer; 
+}
+    .active {
+        transform: rotate(0);
+    }
+    .selected_option {
+    width:50%;
+    background-color: white;
+    border: 1px solid rgb(219, 229, 230);
+    position: absolute;
+    left: 0;
+    z-index: 5;
+    top: 1.1rem;
+    text-align: left;
+    height: 10rem;
+    overflow-y: scroll;
+    margin-top: 1rem;
+    @media (max-width:map-get(b.$breackpoints ,sm)) {
+        width: 90%;
+    }
+    .size {
+    @include b.link();
+    padding: 1rem;
+    width: 89%; // caus padding
+    cursor: pointer;
+    transition: .5s ease-in-out;
+    border-bottom: 1px solid rgb(219, 229, 230);
+    &:hover {
+        background-color: #f0f4f4 !important;
+    }
+
+    }
+    }
+    }
+    .discount_part {
+        padding: 1.5rem 1rem;
+        @include c.flex-space(space-between , 1rem);
+        @media (max-width:map-get(b.$breackpoints ,sm)) {
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+    .impertimg {
+        -webkit-box-align: center;
+        align-items: center;
+        background-color: transparent;
+        border: 2px dashed rgb(214, 214, 214);
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        height: 10rem;
+        -webkit-box-pack: center;
+        justify-content: center;
+        overflow: hidden;
+        position: relative;
+        width: 10rem;
+        margin: auto;
+        .file-input-label {
+        .file-input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        }
+        }
+        .icon_Wrapper {
+        color: rgb(115, 115, 115);
+        font-size: 26px;
+        line-height: inherit;
+        }
+    }
+    .discript_img {
+        @include b.link();
+        margin: 1.5rem;
+        text-align: center;
+    }
+    }
+    }
+}

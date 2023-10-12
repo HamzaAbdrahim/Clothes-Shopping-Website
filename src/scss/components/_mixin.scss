@@ -1,0 +1,94 @@
+@use "../abstracts" as b;
+
+
+$padding-container:8.62rem;
+
+@function clac-padding($number) {
+  @return $number / 2;
+}
+@mixin flex_space ($space , $gap:0 , $align:center) {
+    display:flex;
+    align-items: $align;
+    justify-content: $space;
+    gap: $gap;
+}
+
+@mixin align_item($gap:0 , $align:center) {
+  display: flex;
+  align-items: $align;
+  gap:$gap ;
+}
+
+  @mixin inline ($gap) {
+    display: inline-flex;
+    gap: $gap;
+  }
+
+@mixin none($name:"" , $media:"") {
+  @media (max-width:#{$media}) {
+    .#{$name} {
+    display: none;
+    }
+  }
+}
+  @mixin resposive($classname , $breackpoint) {
+    .#{$classname} {
+      @media (max-width:$breackpoint) {
+        flex-direction: column;
+      }
+    }
+  }
+
+  @mixin container($bg-color) {
+    padding: 0 clac-padding($padding-container);
+    @media (min-width:map-get(b.$breackpoints,lg)) {
+        padding:0 $padding-container;
+    }
+    background-color:$bg-color;
+  }
+
+  @mixin  color() {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  @mixin size() {
+padding: 0.225rem 1.50rem;
+background-color: #F0F0F0;
+border-radius: 3.875rem;
+color: rgba(0, 0, 0, 0.60);
+font-size:1.8rem;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+cursor: pointer;
+  }
+
+  @mixin padding() {
+    margin: 2rem 6.25rem;
+    @media (max-width:map-get(b.$breackpoints , md)) {
+      margin: 1rem 2.5rem;
+    }
+  }
+
+
+@mixin mobil_hidden() {
+  @media (max-width:map-get(b.$breackpoints , sm)) {
+    display: none;
+    }
+}
+
+@mixin wrap($gap) {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: $gap;
+}
+
+@mixin center() {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50% , -50%);  
+}

@@ -1,0 +1,38 @@
+@use "../abstracts" as b;
+@use "./mixin" as c;
+
+$transition:200ms;
+
+@mixin button ($bgcolor , $fontcolor) {
+    padding: .5rem 1rem;
+    color:$fontcolor !important;
+    background-color:$bgcolor;
+    border-radius: .5rem;
+    @include b.link();
+    cursor: pointer;
+    transition: $transition;
+    &:hover {
+        background-color: #B5B3B3;
+    }
+    &:active {
+        background-color: map-get(b.$colors, blacky );
+    }
+}
+
+@mixin button_2 ($bgcolor) {
+    width: 10rem;
+    height: 3rem;
+    @include c.flex-space(center);
+    color:map-get(b.$colors, whity) !important;
+    border-radius: .5rem;
+    @include b.link();
+    margin-bottom: 1rem;
+    background-color: $bgcolor;
+    cursor: pointer;
+    &:hover {
+        opacity: 30%;
+    }
+    &:active {
+        opacity: 1;
+    }
+}

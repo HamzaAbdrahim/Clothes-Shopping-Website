@@ -1,0 +1,115 @@
+@use "../../abstracts" as b;
+@use "../../components" as c;
+@use "../../utilities" as u;
+
+
+.Home {
+    .Usersetting {
+        @include c.flex-space(space-between);
+    }
+    .titel {
+        @include b.heading_3();
+    }
+    .user_info {
+    @include c.align_item(1rem);
+    .notification {
+    @include c.mobil_hidden();
+    }
+    p {
+    @include c.mobil_hidden();
+    @include b.link();
+    text-align: center;
+    span {
+    line-height: 2;
+    display: block;
+    font-weight: bold !important;
+    }
+    }
+    img {
+    height: 2rem;
+    cursor: pointer;
+    }
+    }
+    .orderstate_container {
+        @include u.grid(300px  , 1rem);
+        @media (max-width:map-get(b.$breackpoints , md)) {
+        @include u.grid(200px  , 1rem);
+        }
+        margin: 2rem 0 ;
+        .order {
+        height: 7.5rem;
+        border-radius: 2rem;
+        position: relative;
+        overflow: hidden;
+        .order_titel {
+            @include b.link_two(map-get(b.$colors , whity));
+            font-weight: 800 !important;
+            position: absolute;
+            left: 1rem;
+            top: 1rem;
+        }
+        .order_img {
+            position: absolute;
+            left: 1rem;
+            bottom: -2rem;
+        }
+        .order_amount {
+        @include b.link_two(map-get(b.$colors , whity));
+        font-weight:bold !important;
+        position: absolute;
+        right: 2rem;
+        bottom: 0;
+        font-size: 3rem !important;
+        }
+        }
+    }
+    .table-container {
+        overflow-x: auto;
+        @media (max-width:map-get(b.$breackpoints , md)) {
+            width: 11rem;
+        }
+        .Lastesorder {
+            width:100%;
+            @media (max-width:map-get(b.$breackpoints , md)) {
+                width: 0;
+            }
+        background-color: map-get(b.$colors, whity );
+        margin: auto;
+        caption {
+            @include b.heading_3();
+            text-align: right;
+            margin-bottom: 1rem;
+        }
+        th ,
+        td {
+        @include b.link();
+        text-align: center;
+        padding: .63rem 1.5rem;
+        }
+
+        thead {
+        border-radius: 0.3125rem 0.3125rem 0rem 0rem;
+        background: #F2F4FF;
+    }
+        tbody {
+        text-align: center;
+        tr {
+            .state {
+                position: relative;
+                &::before {
+                    content: "";
+                    position: absolute;
+                    width: 0.7rem;
+                    height: 0.7rem;
+                    background-color: map-get(b.$colors, greeny );
+                    border-radius: 50%;
+                    left: 3.7rem;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+            }
+        }
+        }
+    }
+}
+    }
