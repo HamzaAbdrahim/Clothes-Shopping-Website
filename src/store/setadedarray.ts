@@ -8,15 +8,19 @@ const initialState: SaveItemState = {
   items: [],
 };
 
-const saveItem = createSlice({
-  name: 'saveitem',
+const ItemsSlice = createSlice({
+  name: 'cart',
   initialState,
   reducers: {
-    plusitem: (state, action: PayloadAction<string>) => {
-      state.items.push(action.payload);
+    plusItem: (state, action: PayloadAction<string>) => {
+      const finditem = state.items.find((item) => item === action.payload);
+      finditem ? false : state.items.push(action.payload);
+    },
+    clearItem: (state) => {
+      state.items = [];
     },
   },
 });
 
-export const { plusitem } = saveItem.actions;
-export default saveItem.reducer;
+export const { plusItem, clearItem } = ItemsSlice.actions;
+export default ItemsSlice.reducer;
