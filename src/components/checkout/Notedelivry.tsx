@@ -25,9 +25,7 @@ const Notedelivry = () => {
         <div className="product_content">
             <h1 className="product_titel">{product.name}</h1>
             <p className="product_size_color">• المقاس ( {product.size} )</p>
-            {product.color.map((color) => (
-            <p className="color" style={{backgroundColor:color}}></p>
-            ))}
+            <p className="color" style={{backgroundColor:product.color}}></p>
             <p className="product_price">{product.count}  3750 x د.ج</p>
         </div>
         </div>
