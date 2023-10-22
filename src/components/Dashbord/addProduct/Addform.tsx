@@ -6,7 +6,6 @@ import { useEffect, useRef, useState } from "react";
 import Chosecatogray from "./Chosecatogray";
 import Importimg from "./Importimg";
 import Submit from "../../shered/Submit";
-import { sizes } from "../../../content";
 import { adedproduct } from "../Types";
 import assest from "../../../assets/imges";
 import axios from "axios";
@@ -19,9 +18,7 @@ import { clearItem } from "../../../store/setadedarray";
 const Addform = ({clickshowtap } : {clickshowtap:() => void}) => {
   const [loding , setloding] = useState<Boolean>(false)
   const tapRef = useRef<HTMLDivElement >(null);
-  const [show , setshow] = useState<Boolean>(false)
   const [uniqimg ,  setuniqimg] = useState<string>();
-  const [selectedSizes, setSelectedSizes] = useState<string[]>([]);
   const dispatch = useDispatch();
   const [err , seterr] = useState<string>("")
   const selecteditem = useSelector((state:any) => state.itemsSlice)
@@ -51,15 +48,7 @@ const Addform = ({clickshowtap } : {clickshowtap:() => void}) => {
     }
   });
 
-const extrasizes = () => {
-  sizes.map((size) => {
-    setSelectedSizes((prevSizes) => [...prevSizes, size.size])
-  })
-  }
-  const handelclick = () => {
-  setshow((prev:Boolean) => (!prev));
-  extrasizes();
-  } 
+
   const getimg = (image:string | undefined) => {
     setuniqimg(image)
     }
@@ -125,7 +114,7 @@ const handelsadedate = async (subdate:adedproduct) => {
     <>
     {loding && <Loding />}
     <Shadow  />
-    <div ref={tapRef} onClick={handelclick} className="Addform">
+    <div ref={tapRef} className="Addform">
     {err.length > 0 ? (
     <div className="err_tab">
     <img src={assest.close} alt="close" />
@@ -150,7 +139,7 @@ const handelsadedate = async (subdate:adedproduct) => {
     <Chosecatogray  name = "الأحجام"  dataarray = {sizesArray} />
     <Chosecatogray  name = "الألوان"  dataarray = {colorNames} />
 <div style={{margin:'1rem auto'}}>
-    <Submit click = {() => handelclick} value = "إضافة المنتج" />
+    <Submit click = {() => console.log('hamza')} value = "إضافة المنتج" />
     <img src={uniqimg} alt="" />
 </div>
     </Form>

@@ -79,7 +79,7 @@ const Login = () => {
     <Input dis ={password !== "كلمة السر" ? "#FF3333" : "#000000"}  titel = " كلمة المرور" className = "password" placeholder = "ادخل كلمة المرور الخاصة بك" label = {password} name  = "password"  type = "password"/>
     <p className="to_login">ليس لديك حساب<Link to = "/auth">انشاء حساب جديد</Link></p>
     <Submit value="تسجيل حساب جديد"
-    click={checkemailpasswordvaldition} />
+    click={() => checkemailpasswordvaldition} />
     </Form>
     </div>
     </>

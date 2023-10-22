@@ -21,8 +21,8 @@ const Productpage = () => {
   const [received, setReceived] = useState<Product[] | null>(null);
   const { id } = useParams<{ id: string }>();
   const counter = useSelector((state:any) => state.counter);
-const defultcolor:string = useSelector((state:any) => state.publicstate.defultcolor);
-const defultsize:string = useSelector((state:any) => state.publicstate.defultsize);
+const defultcolor:string[] = useSelector((state:any) => state.publicstate.defultcolor);
+const defultsize:string[] = useSelector((state:any) => state.publicstate.defultsize);
   const dispatch =useDispatch()
 
   const handleClearCount = () => {
@@ -81,7 +81,7 @@ const handlecolorClick = (color:any) => {
                     <li 
                     onClick = {() => handlecolorClick(color)}
                     key={color} 
-                    className={`color ${color === defultcolor ? "active" : ""}`}
+                    className={`color ${defultcolor.includes(color) ? "active" : ""}`}
                     style={{backgroundColor:color}}
                     >
                     </li>
@@ -96,7 +96,7 @@ const handlecolorClick = (color:any) => {
                     <li 
                     onClick={() => handleSizeClick(size)} 
                     key={size} 
-                    className={`size ${size === defultsize ? "active" : ""}`}
+                    className={`size ${defultsize.includes(size) ? "active" : ""}`}
                     >
                       {size}
                     </li>
@@ -113,7 +113,8 @@ const handlecolorClick = (color:any) => {
     img: product.img,
     color: defultcolor,
     size: defultsize,
-    count: counter
+    count: counter,
+    catogray: []
   }));
 }} to="/cart">
   اضافة للسلة

@@ -1,19 +1,22 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
+interface SaveItemState {
+  items: string[];
+}
 
-const ItemsSlice = createSlice({
-  name: 'cart',
-  initialState: [],
+const initialState: SaveItemState = {
+  items: [],
+};
+
+const saveItem = createSlice({
+  name: 'saveitem',
+  initialState,
   reducers: {
-  plusItem: (state, action: PayloadAction) => {
-    const finditem = state.find((item) => item === action.payload );
-    finditem ? false : state.push(action.payload);
-  },
-  clearItem: (_state, _action: PayloadAction) => {
-  return []
-  }
+    additem: (state, action: PayloadAction<string>) => {
+      state.items.push(action.payload);
+    },
   },
 });
 
-export const { plusItem , clearItem } = ItemsSlice.actions;
-export default ItemsSlice.reducer;
+export const { additem } = saveItem.actions;
+export default saveItem.reducer;

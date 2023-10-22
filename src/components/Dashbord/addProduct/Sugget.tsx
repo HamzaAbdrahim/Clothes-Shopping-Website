@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { plusItem } from "../../../store/setadedarray";
+import { additem } from "../../../store/setadedarray";
 
 const Sugget = ({array }: {array:string[] }) => {
   const dispatch = useDispatch();
@@ -8,8 +8,8 @@ const Sugget = ({array }: {array:string[] }) => {
   
   return (
     <ul className="selected_option">
-      {array.map((ele, index: number) => (
-        <li onClick={() => dispatch(plusItem(ele))} className="size" key={index}>
+      {array.map((ele:string, index: number) => (
+        <li onClick={() => dispatch(additem(ele))} className="size" key={index}>
           {ele}
         </li>
       ))}

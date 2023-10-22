@@ -11,7 +11,7 @@ const counterSlice = createSlice({
     decrement: (state:number) => {
       return state >= 1 ? state - 1 : 0;
     },
-    clearcount:(state , action) => {
+    clearcount:(state , _action) => {
       return state = 1
     }
   },

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import assest from "../../assets/imges"
-import { catograys, colors, sizes } from "../../content";
+import { catograys, sizes } from "../../content";
 import { useDispatch } from "react-redux";
 import { setSize , setPrice as publicstate } from "../../store/publicstate";
 

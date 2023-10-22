@@ -391,18 +391,6 @@ export const dashbordlist:spechillist[] = [
 }
 ]
 
-export const spechillist:spechillist[] =  [
-    {
-        icon:assest.Setting,
-        titel:"الإعدادات",
-        path:"/",
-    },
-    {
-        icon:assest.logout,
-        titel:"تسجيل خروج",
-        path:"/",
-    },
-]
 
 export const stateorder = [
     {
@@ -463,16 +451,4 @@ export const stateorder = [
 
 
 
-
-
-
-
-
-
-
-
-
-function gradient(arg0: number, deg: any, arg2: any, arg3: number, BAAFC: any, arg5: number, arg6: any, arg7: number, FEC: any, arg9: number) {
-    throw new Error("Function not implemented.");
-}
 
