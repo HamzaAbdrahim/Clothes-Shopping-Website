@@ -41,6 +41,8 @@ import close_icon from "./close_icon.png"
 import Yes from "./accsept.svg"
 import add_icon from "./add.png"
 import singup from "./Saly-10.png"
+import show from "./show.png";
+import hide  from "./hide.png";
 
 
 
@@ -99,7 +101,9 @@ shping,
 close_icon,
 Yes,
 add_icon,
-singup
+singup,
+show,
+hide
 
 }
 export default assest

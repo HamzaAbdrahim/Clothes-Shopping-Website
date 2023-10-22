@@ -8,6 +8,14 @@
     border-radius: 3.875rem;
     @include b.link_two(map-get(b.$colors, lightgray_two ));
 }
+.show_notshow_password {
+    position: absolute;
+    left:0;
+    top: calc(50% + .3rem) ;
+    transform: translateY(-50%);
+    height: 1.5rem;
+    cursor: pointer;
+}
 
 .label_sherd {
     color: map-get(b.$colors, dark-red );

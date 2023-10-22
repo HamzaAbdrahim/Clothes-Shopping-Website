@@ -61,6 +61,7 @@ const Login = () => {
             setpassword('كلمة السر غير موجودة، حاول إنشاء حساب جديد');
           } else if (response.data.some((userinfo: resposetype) => userinfo.email.toLowerCase() === submission.email.toLowerCase() && userinfo.password.toLowerCase() === submission.password.toLowerCase())) {
           Navigate('/')
+          localStorage.setItem('authTokenLogin' , submission.email);
           }
         } catch (error) {
           console.error('Error making GET request:', error);

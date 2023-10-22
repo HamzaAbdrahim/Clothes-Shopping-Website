@@ -17,7 +17,7 @@ $listsizeH:20rem;
     .Filterbar {
 border-radius: 1.25rem;
 border: 1px solid rgba(0, 0, 0, 0.10);
-width: 40%;
+width: 25%;
 display: block;
 padding: 1.25rem 1.5rem;
 @media (max-width:map-get(b.$breackpoints , xl)) {
@@ -114,51 +114,38 @@ padding: 1.25rem 1.5rem;
 }
     }
     .filterby_colors {
-        padding: 1.5rem 0 0;
-        .filter_first {
-            @include c.flex-space(space-between , 1rem);
-            h1 {
-            @include b.link() 
-            }
-            img {
-            height: 2rem;
-            cursor: pointer;
-            transition: .5s;
-            }
-            .active {
-            transform: rotate(180deg);
-        }
-        }
-        .list_colors {
-            @include c.flex-space(space-between , 1rem);
-            width: 100%;
-            gap: 1rem;
-            flex-wrap: wrap;  
-            height: 0;
-            min-height: 0;
-            overflow: hidden;
-            transition: .5s;
-            .color {
-        width: 2.3125rem;
-        height: 2.3125rem;
-        border-radius: 50%;
-            }  
-        }
-        .show {
-            height: $listheight;
-        }
+    padding: 1.5rem 0 0;
+    .filter_first {
+    @include c.flex-space(space-between , 1rem);
+    h1 {
+    @include b.link();
+    margin-bottom: 2rem;
     }
-    .list_size {
+    img {
+    height: 2rem;
+    cursor: pointer;
+    transition: .5s;
+    }
+    .active {
+    transform: rotate(180deg);
+    }
+    }
+    .show {
+    height: $listheight;
+    }
+    }
+    .list_size,
+    .list_catogra {
     display: flex;
     gap: 1rem;
-    margin: 1.5rem 0 ;
     height: 0;
     min-height: 0;
     overflow: hidden;
     transition: .5s;
     width: 100%;
     flex-wrap: wrap;
-    .size {
+    .size,
+    .catogra {
 padding: 0.625rem 1.50rem;
 background-color: #F0F0F0;
 border-radius: 3.875rem;
@@ -174,12 +161,16 @@ text-align: center;
     color:map-get(b.$colors , whity) ;
 }
 }
+.show_catogra {
+    height:4rem;
+}
 .show_size {
     height: $listsizeH;
 }
 .Apply_filter {
     @include c.button_2(map-get(b.$colors , blacky));
     width: 100%;
+    margin-top:1rem;
     }
 }
 .icon {

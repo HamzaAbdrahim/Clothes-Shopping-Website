@@ -3,7 +3,7 @@
 @use "../../utilities" as u;
 
 
-.Home {
+
     .Usersetting {
         @include c.flex-space(space-between);
     }
@@ -112,4 +112,3 @@
         }
     }
 }
-    }

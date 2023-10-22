@@ -12,6 +12,7 @@ export const getorders = createAsyncThunk<order[]>('products/fetch', async () =>
   }
 });
 
+
 const fetchorders = createSlice({
   name: 'orders',
   initialState,

@@ -8,7 +8,7 @@ import ItemsSlice from './setadedarray';
 import setloding from './setloding';
 import fetchorders from "./useorderfatch";
 import shearchvalue from './shearchvalue';
-
+import userslice from "./userslice"
 
 export const store = configureStore({
   reducer: {
@@ -19,7 +19,8 @@ export const store = configureStore({
   itemsSlice:ItemsSlice,
   loding:setloding,
   orders:fetchorders,
-  shearchvalue:shearchvalue
+  shearchvalue:shearchvalue,
+  users:userslice,
   },
 });
 

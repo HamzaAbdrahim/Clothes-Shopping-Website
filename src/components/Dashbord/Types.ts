@@ -31,3 +31,12 @@ product_amount: string;
     orderId: number,
     id: number
   } 
+  export interface singupformtypes {
+    email:string,
+    password:string,
+    uniqimg: string | undefined,
+    loadingState: boolean,
+    imgState: boolean,
+    name:string,
+    reWritePassword:string
+  }

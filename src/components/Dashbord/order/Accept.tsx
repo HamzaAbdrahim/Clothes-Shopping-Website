@@ -8,7 +8,7 @@ const Accept = ({state , to} :{state:boolean , to:string}) => {
     return (
     <>
     {state && <Shadow />}
-    <div className={`Accept_tap ${state ? "active" : ""}`} >
+    <div className={`Accept_tap ${state ? "active_tab" : ""}`} >
     <img  src={assest.Yes} alt="accept" className="accept" />
     <div className="content">
     <h1>تم طلب المنتج بنجاح</h1>

@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import "../../scss/pages/_filtering.scss";
 import Filterbar from "./Filterbar";
-import Product from "../ourproduct/Prouduct";
 import assest from "../../assets/imges";
+import Productfilter from './Productfilter';
+
 interface proptype {
 size : string
 price :number
@@ -25,7 +26,7 @@ console.log(showComponent);
         onClick={handleIconClick}
         />
       }
-      <Product  none="none" w="100%" p="2rem"  />
+      <Productfilter/>
     </div>
   );
 };

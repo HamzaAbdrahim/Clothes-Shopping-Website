@@ -35,7 +35,7 @@ export const bar:bar[] = [
     {
         titel:"سياسة الإستبدال و الإسترجاع",
         icon:assest.return_policy,
-        path:"/"
+        path:"return-policy"
     },
     {
         titel:"الأسئلة الشائعة",

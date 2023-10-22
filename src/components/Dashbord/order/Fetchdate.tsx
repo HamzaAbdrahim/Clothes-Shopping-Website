@@ -6,16 +6,17 @@ import {getorders} from "../../../store/useorderfatch"
 import axios from "axios";
 import { order } from "../../types";
 import { orderIds } from "../Types";
+import { AppDispatch, RootState } from "../../../store/store";
 
 const Fetchdate = () => {
 
   const [show, setshow] = useState<boolean>(false);
 
-  const [orderid, setorderid] = useState<number[]>();
+  const orders = useSelector((state:RootState) => state.orders.data)
 
-  const orders = useSelector((state: any) => state.orders.data);
+  const [orderid, setorderid] = useState<number[]>();
     
-  const dispatch = useDispatch();
+  const dispatch:AppDispatch = useDispatch();
 
 console.log(orderid);
 
@@ -36,12 +37,14 @@ console.log(orderid);
     } 
     setshow((prev:boolean) => (!prev))
   }
+
+  
   const getordersId = async () => {
     try {
       const response = await axios.get(`http://localhost:3000/orderId`);
       const orderIds = response.data.map((order: orderIds) => order.orderId);
       const uniqueOrderIds = orderIds.filter((value: string, index: number, self: string | any[]) => {
-        return self.indexOf(value) === index;
+      return self.indexOf(value) === index;
       });
       setorderid(uniqueOrderIds);
       console.log('GET request successful');
@@ -90,7 +93,7 @@ console.log(orderid);
         ))}
         </div>
     ) : (
-        <div>Loading...</div>
+      <h1 className = "empty_titel">سلة الطلبيات</h1>
     )}
     </>
 );

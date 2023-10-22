@@ -1,10 +1,10 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFileCirclePlus } from '@fortawesome/free-solid-svg-icons';
 import "../../../scss/components/_importimg.scss"
-import axios from 'axios';
+
 
 interface ImportimgProps {
-    onImageSelect: (image: string) => void;
+    onImageSelect: (image: string | undefined) => void;
     condition: string | undefined;
     imgstate:boolean
 }
@@ -19,17 +19,7 @@ const Importimg: React.FC<ImportimgProps> = ({ onImageSelect, condition , imgsta
         const jsonData = {
           image: base64Data
         };
-        const handelsenadimg = () => {
-          axios.post('http://localhost:3000/product_img', jsonData)
-            .then(response => {
-            console.log('Image uploaded successfully:', response.data);
-            onImageSelect(response.data.image);
-            })
-            .catch(error => {
-            console.error('Error uploading image:', error);
-            });
-        };
-        handelsenadimg();
+        onImageSelect(jsonData.image);
       };
       reader.readAsDataURL(file);
     }

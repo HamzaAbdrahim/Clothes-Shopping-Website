@@ -24,6 +24,33 @@
     .frind_role {
         @include b.link_2();
     }
+    .user {
+    background-color:map-get(b.$colors, gray_one );
+    padding: 1rem ;
+    margin-top: 1rem;
+    @include b.link_2();
+    @include c.flex-space(space-between , 1rem);
+    flex-wrap: wrap;
+    margin-top:1rem;
+    }
+    .buttons {
+    margin-top: 1rem;
+    .Yes {
+    @include c.button(map-get(b.$colors ,greeny ) , map-get(b.$colors , whity));
+    width: 100%;
+    margin-bottom: .5rem;
+    }
+    .No {
+    @include c.button(map-get(b.$colors ,dark-red ) , map-get(b.$colors , whity));
+    width: 100%;
+    }
+    .primition {
+        background-color: map-get(b.$colors, blacky );
+        color: white;
+        pointer-events: none;
+        cursor: not-allowed;
+    }
+    }
     }
     }
 }

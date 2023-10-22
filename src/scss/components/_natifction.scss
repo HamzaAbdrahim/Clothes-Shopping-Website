@@ -1,0 +1,29 @@
+@use "../components" as c;
+.bag_container {
+    position: relative;
+    cursor: pointer;
+    img {
+        max-width: 2rem;
+    }
+.bg-counter {
+    border-radius: 50%;
+    position: absolute;      
+    transform: translateX(-50%);
+    background-color: #f6053e;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    color: #FFF;
+    width: 1.5rem;
+    height:1.5rem;
+    @include c.flex-space(center);
+}
+}
+.order_note {
+    top: -45%;
+    left:50%;  
+}
+.cart_note {
+    bottom: -3px;
+    right: -15px;
+}

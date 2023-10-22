@@ -5,13 +5,13 @@
 
 .Order {
     .titel {
-        @include b.heading_3();
+    @include b.heading_3();
     }
     .order_container {
-        @include u.grid(350px  , 1rem);
-        @media (max-width:map-get(b.$breackpoints , md)) {
-        @include u.grid(200px  , 1rem);
-        }
+    @include u.grid(350px  , 1rem);
+    @media (max-width:map-get(b.$breackpoints , md)) {
+    @include u.grid(200px  , 1rem);
+    }
     margin-top: 3rem;
     .order_cart {
         padding: 1rem;
@@ -61,5 +61,10 @@
         @include c.button(map-get(b.$colors ,dark-red ) , map-get(b.$colors , whity));
         }
     }
+    }
+    .empty_titel {
+    @include b.heading_3();
+    margin: 10rem 0; 
+    text-align: center;
     }
 }

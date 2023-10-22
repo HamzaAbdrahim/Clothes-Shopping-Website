@@ -49,28 +49,10 @@
     .icons {
         @include c.align_item(1.2rem);
        .shearch {
-            @media (min-width:map-get(b.$breackpoints , md)) {
+            @media (min-width:map-get(b.$breackpoints , xl)) {
                 display: none;
             }
         }
-        .bag_container {
-            position: relative;
-        .bag-counter {
-            border-radius: 50%;
-            position: absolute;
-            top: -45%;
-            left:50%;        
-            transform: translateX(-50%);
-            background-color: #f6053e;
-            font-size: 1rem;
-            font-style: normal;
-            font-weight: 600;
-            color: #FFF;
-            width: 1.5rem;
-            height:1.5rem;
-            @include c.flex-space(center)
-            }
-    }
     img {
         height: 1.8rem;
         cursor: pointer;
@@ -89,18 +71,18 @@
         }
     }
 }
-    @include c.none(search_product , map-get(b.$breackpoints , xl) );
     .search_product {
         position: relative;
         input {
         @include c.input();
-        width:40rem;
+        width: 40rem;
         height:3rem;
-        &::placeholder {
-        font-size: 1.5rem;
-        font-family: 'Cairo', sans-serif;
-        font-weight: 600;
+        @media (max-width:1200px) {
+        width: 100% !important;
         }
+        @include b.link();  
+        font-size: 1.5rem !important;
+        
         }
         > img {
     position: absolute;

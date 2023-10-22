@@ -60,7 +60,7 @@ const extrasizes = () => {
   setshow((prev:Boolean) => (!prev));
   extrasizes();
   } 
-  const getimg = (image:string) => {
+  const getimg = (image:string | undefined) => {
     setuniqimg(image)
     }
   const handelform =  (e:any) => {
@@ -145,7 +145,7 @@ const handelsadedate = async (subdate:adedproduct) => {
     <Input dis = {err?.length > 3 ? "#FF3A41" : ""} className = "product_page" placeholder = "سعر المنتج بعد الخصم" label = "إختياري" name  = "after_discount"  type = "text"/>
     <Input dis = {err?.length > 3 ? "#FF3A41" : ""} className = "product_page" placeholder ="الكمية الموجودة من المنتج" label = "اضع الكمية" name  = "product_amount"  type = "text"/>
     </div>
-    <Importimg condition = {uniqimg} onImageSelect = {getimg} />
+    <Importimg condition={uniqimg} onImageSelect={getimg} imgstate={false} />
     <Chosecatogray  name = "الأنواع"  dataarray = {["الحجابات" , "الخيمارات"]} />
     <Chosecatogray  name = "الأحجام"  dataarray = {sizesArray} />
     <Chosecatogray  name = "الألوان"  dataarray = {colorNames} />

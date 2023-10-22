@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import assest from "../../assets/imges"
-import { colors, sizes } from "../../content";
+import { catograys, colors, sizes } from "../../content";
 import { useDispatch } from "react-redux";
 import { setSize , setPrice as publicstate } from "../../store/publicstate";
 
@@ -8,17 +8,19 @@ import { setSize , setPrice as publicstate } from "../../store/publicstate";
 const Filterbar = (prop:any) => {
   const [price, setPrice] = useState(1000);
   const [selectedSize, setSelectedSize] = useState<string>('Large');
+  const [selectedcatogray, setselectedcatogray] = useState<string | null>(localStorage.getItem('chosencatogray'));
   const [showprice , setshowprice] = useState<boolean>(false)
-  const [showcolors , setshowcolors] = useState<boolean>(false)
   const [showsizes , setshowsizes] = useState<boolean>(false)
+  const [showcatogray , setshowcatogray] = useState<boolean>(false)
+
   const [isMobile, setIsMobile] = useState(false);
   const dispatch = useDispatch();
 
-  const handleTogglecolor = () => {
-    setshowcolors(prev => (!prev)) 
-  };
   const handleTogglesize = () => {
     setshowsizes(prev => (!prev)) 
+  };
+  const handlecatograytoogl = () => {
+    setshowcatogray(prev => (!prev)) 
   };
   const handelshowprice = () => {
     setshowprice(prev => (!prev)) 
@@ -50,6 +52,7 @@ const Filterbar = (prop:any) => {
   const handleFilter = () => {
     dispatch(setSize(selectedSize));
     dispatch(publicstate(price));
+    
     isMobile ? prop.changestate() : false
   };
 
@@ -84,17 +87,6 @@ const Filterbar = (prop:any) => {
       </div>
       <div className="filterby_colors">
       <div className="filter_first">
-        <h1>الألوان</h1>
-        <img src={assest.dark_arrwo} className={`dark_arrwo ${showcolors ? "active" : ""}`} onClick={handleTogglecolor} alt="dark_arrwo" />
-        </div>
-          <ul  className={`list_colors ${showcolors ? "show" : ""}`}>
-          {colors.map((color , index) => (
-          <li className="color" key={index}  style={{backgroundColor:color.color}}></li>
-          ))}
-          </ul>
-      </div>
-      <div className="filterby_colors">
-      <div className="filter_first">
         <h1>الأحجام</h1>
         <img src={assest.dark_arrwo} onClick={handleTogglesize} className={`dark_arrwo ${showsizes ? "active" : ""}`} alt="dark_arrwo" />
         </div>
@@ -107,7 +99,21 @@ const Filterbar = (prop:any) => {
             ))}
         </ul>
       </div>
-      <button className="Apply_filter" onClick={handleFilter} type="submit">تطبيق الفلتر</button>
+      <div className="filterby_colors">
+      <div className="filter_first">
+        <h1>الأنواع</h1>
+        <img src={assest.dark_arrwo} onClick={handlecatograytoogl} className={`dark_arrwo ${showcatogray ? "active" : ""}`} alt="dark_arrwo" />
+        </div>
+          <ul className={`list_catogra ${showcatogray ? "show_catogra" : ""}`}>
+          {catograys.map((catogray , index:number) => (
+            <li 
+            onClick={() => {setselectedcatogray(catogray.titel) , localStorage.setItem('chosencatogray' , catogray.titel)}}
+            key={index} 
+            className={`catogra ${catogray.titel === selectedcatogray ? "active" : ""}`}>{catogray.titel}</li>
+            ))}
+        </ul>
+      </div>
+      <button className="Apply_filter" onClick={handleFilter}>تطبيق الفلتر</button>
     </div>
   )
 }

@@ -7,16 +7,19 @@ import { useDispatch, useSelector } from 'react-redux';
 import {Link,useNavigate} from 'react-router-dom';
 import Shadow from '../shered/Shadow';
 import { setshearchvalue } from '../../store/shearchvalue';
-
- const Navbar = () => {
+import Daynamicknote from '../shered/Daynamicknote';
+import useWindowSize from '../../hooks/useWindowSize';
+import Suggetsearch from './Suggetsearch';
+const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [sheachclick , setsheachclick] = useState<boolean>(false);
+  const [showsearch , setshowsearch] = useState<boolean>(false)
   const dispatch = useDispatch();
   const shearchref = useRef<HTMLDivElement >(null);
   const cart = useSelector((state:any) => state.cart);
   const searchvalue = useSelector((state:any) => state.shearchvalue)  
   const Navigate =  useNavigate();
-  
+  const size = useWindowSize()
 
   const handleBurgerClick = () =>  {
     setIsMenuOpen(!isMenuOpen);
@@ -30,6 +33,7 @@ import { setshearchvalue } from '../../store/shearchvalue';
     const handler = (e:MouseEvent)=>{
     if(shearchref.current && !shearchref.current.contains(e.target as Node)){
       setsheachclick(false)
+      setshowsearch(false)
     console.log(shearchref.current);
     }      
     };
@@ -41,8 +45,6 @@ import { setshearchvalue } from '../../store/shearchvalue';
 
   const handelpresenter = (e:KeyboardEvent) => {
     if (e.key === 'Enter') {
-      console.log('hamza');
-      
       if (sheachclick && searchvalue.length > 3) {
         handelclickshearch()
         Navigate('shearch')
@@ -50,13 +52,17 @@ import { setshearchvalue } from '../../store/shearchvalue';
     }
   }
 
+  const handelsearchclicksmaalsize = () => {
+    setshowsearch(true);
+    setsheachclick(true)
+  }
 
   return (
     <>
     {sheachclick && <Shadow />}
-      <Bar />
-      <div className="navbar">
-        <div className="logo_container">
+    <Bar />
+    <div className="navbar">
+    <div className="logo_container">
           <div>
             <img
               src={assest.burger}
@@ -70,22 +76,25 @@ import { setshearchvalue } from '../../store/shearchvalue';
           <Link to={"/"}>
           <img src={assest.logo} alt="logo" className="logo" />
           </Link>
-        </div>
-        <div ref={shearchref} onClick={handelclickshearch} onKeyDown={(e) => handelpresenter(e)} className={`search_product ${sheachclick ? "shearch_active" : ""}`}>
-          <input onChange={(e) => dispatch(setshearchvalue(e.target.value)) } type="search" name="search_product" id="search" placeholder="ابحث عن المنتجات..." />
-          <img src={assest.shearch} alt="shearch" />
-        </div>
-        <div className="icons">
-          <img src={assest.shearch_black} alt="shearch" className="shearch" />
-          <div className='bag_container'>
-            <Link to="/cart">
-          <img src={assest.bag} alt="bag" className='bag' />
-            </Link>
-          <span className='bag-counter'>{cart.length}</span>
-        </div >
-          <img src={assest.user} alt="user" />
-        </div>
-      </div>
+    </div>
+    {size.width && size.width > 1000 ? 
+    <div ref={shearchref} onClick={handelclickshearch} onKeyDown={(e) => handelpresenter(e)} className={`search_product ${sheachclick ? "shearch_active" : ""}`}>
+    <input onChange={(e) => dispatch(setshearchvalue(e.target.value)) } type="search" name="search_product" id="search" placeholder="ابحث عن المنتجات..." />
+    <Suggetsearch changestate = {setsheachclick} />
+    <img src={assest.shearch} alt="shearch" />
+    </div>
+    : showsearch ? 
+    <div ref={shearchref} onClick={handelclickshearch} onKeyDown={(e) => handelpresenter(e)} className={`search_product ${sheachclick ? "shearch_active" : ""}`}>
+    <input onChange={(e) => dispatch(setshearchvalue(e.target.value)) } type="search" name="search_product" id="search" placeholder="ابحث عن المنتجات..." />
+    <img src={assest.shearch} alt="shearch" />
+    </div> :""
+   }
+    <div className="icons">
+    <img src={assest.shearch_black} alt="shearch" onClick={handelsearchclicksmaalsize} className="shearch" />
+    <Daynamicknote path={'cart'} img={assest.bag} arraylength={cart.length} />
+    <img onClick = {() => Navigate('userapage')}  src={assest.user} alt="user" />
+    </div>
+    </div>
     </>
   );
 };

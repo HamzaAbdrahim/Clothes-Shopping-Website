@@ -12,17 +12,17 @@ const handelclick = () => {
 }
 
   return (
-    <div className="Addproduct">
-        <h1 className="titel">إضافة المنتجات</h1>
-        <div className="add_container">
-          <FontAwesomeIcon icon={faCirclePlus} size="2x" onClick={handelclick}  spinPulse style={{color: "#000000",cursor:"pointer"}} />
-          <p className="add_titel">إضافة منتج</p>
-        </div>
-        {show ? (
-          <Addform  clickshowtap = {handelclick} />
-        ) : ''}
-        <Curddate />
-    </div>
+  <div className="Addproduct">
+  <h1 className="titel">إضافة المنتجات</h1>
+  <div className="add_container">
+  <FontAwesomeIcon icon={faCirclePlus} size="2x" onClick={handelclick}  spinPulse style={{color: "#000000",cursor:"pointer"}} />
+  <p className="add_titel">إضافة منتج</p>
+  </div>
+  {show ? (
+  <Addform  clickshowtap = {handelclick} />
+  ) : ''}
+  <Curddate />
+  </div>
   )
 }
 

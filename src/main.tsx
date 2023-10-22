@@ -27,6 +27,7 @@ import Searchpage from './components/searchpage/Searchpage';
 import Singup from './components/Dashbord/auth/Singup';
 import Formsingup from './components/Dashbord/auth/Formsingup';
 import Login from './components/Dashbord/auth/Login';
+import Userpage from './components/userpage/Userpage';
 
 const AppLayout = () => (
   <div className="App">
@@ -47,7 +48,8 @@ const router = createBrowserRouter([
   <Praduct none={''} w={''} p={''} />
   <Catogray />
   </div>
-  },
+  },{path:"/userapage" , element:localStorage.getItem('authTokenLogin') && localStorage.getItem('authTokenLogin') !== 'undefined' ? <Userpage /> : <Singup />}
+  ,
   {path:"return-policy",element:<Return_policy />},
   {path:"cart",element:<Shopingcart />},
   {path:"filter",element:<Filtering size={''} price={0} />},
@@ -69,10 +71,10 @@ const router = createBrowserRouter([
   path:"auth",
   element:<Singup />,
   children:[
-    {path:"login" , element:<Login />},
+  {path:"login" , element:<Login />},
   {path:"" , element:<Formsingup />}
   ]
-  }
+  },
 ]);
 
 

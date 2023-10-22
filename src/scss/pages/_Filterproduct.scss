@@ -2,17 +2,13 @@
 @use "../components" as c;
 @use "../utilities" as u;
 
-.product {
-    padding: 4.5rem 6.25rem;
-    text-align: center;
-    .product_titel {
-        @include b.heading_1();
-    }
-    .producr_container {
-    @include u.grid(350px , 1rem);
+
+
+.producr_container {
+    @include u.grid(300px , 1rem);
     place-items: center;
+    width:70%;
     margin: 2rem 0;
-    width: 100%;
     .product_cart {
 border: 1px solid rgba(0, 0, 0, 0.26);
 border-radius: 1rem;
@@ -58,7 +54,10 @@ transition: .5s ease-in-out;
     width: 100% !important;
     }
     }
-    
+    .not_found {
+    @include b.heading_3();
+    margin: 10rem auto; 
+    }
     }
     .see_more {
         padding: .3rem 7.375rem;
@@ -76,13 +75,3 @@ transition: .5s ease-in-out;
 background-color: map-get(b.$colors, blacky );
 }
     }
-}
-
-.Loding {
-    margin:  20rem  0 ;
-    .loding_icon {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-}

@@ -29,15 +29,14 @@ const Changebg = () => {
 
   return (
     <div className="imges_container">
-      <div className="background_img" style={{ backgroundImage: `url(${backgrounds[currentIndex].img})` }}>
+        <img src={`${backgrounds[currentIndex].img}`} alt="" />
         <div className='prev'>
           <BsChevronCompactLeft onClick={prevSlide} size={30} />
         </div>
         <div className='next'>
           <BsChevronCompactRight onClick={nextSlide} size={30} />
         </div>
-      </div>
-    </div>
+        </div>
   );
 };
 
