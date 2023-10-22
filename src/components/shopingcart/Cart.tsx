@@ -34,7 +34,7 @@ const Cart = () => {
               </div>
               <div className="chosen_color">
                 <h1>لون</h1>
-              <p className="color" style={{backgroundColor:product.color}}></p>
+              <p className="color" style={{backgroundColor:product.color.toString()}}></p>
               </div>
             </div>
             <div className="cart_links">

@@ -6,15 +6,8 @@ import Loding from './Loding';
 import { useDispatch, useSelector } from "react-redux";
 import { getproduct } from "../../store/fetechproduct";
 import { AppDispatch } from "../../store/store";
+import { typeProduct } from "../types";
 
-
-interface Product {
-  id: number;
-  name: string;
-  price: number;
-  img: string;
-  sizes: string[];
-}
 
 interface styling {
   none: string;
@@ -39,7 +32,7 @@ if (product.length === 0) return <Loding />
         <h1 style={{ display: prop.none }} className="product_titel">جديد المنتجات</h1>
         <div className="producr_container">
           {
-            product.slice(0,sliceproduct).map((ele:any) => (
+            product.slice(0,sliceproduct).map((ele:typeProduct) => (
               <div key={ele.id} className="product_cart" >
                 <Link to={`/product/${ele.id}`}>
                   <img src={ele.img || assest.product_one} alt="product_one" className="product_img" />

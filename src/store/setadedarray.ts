@@ -12,11 +12,11 @@ const saveItem = createSlice({
   name: 'saveitem',
   initialState,
   reducers: {
-    additem: (state, action: PayloadAction<string>) => {
+    plusitem: (state, action: PayloadAction<string>) => {
       state.items.push(action.payload);
     },
   },
 });
 
-export const { additem } = saveItem.actions;
+export const { plusitem } = saveItem.actions;
 export default saveItem.reducer;
