@@ -1,16 +1,13 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import {typeProduct} from "../components/types"
 
 
 
-interface actions {
-    payload: typeProduct;
-}
 const cartSlice = createSlice({
   name: 'cart',
   initialState: [],
   reducers: {
-    addItem: (state:typeProduct[], action:actions) => {
+    addItem: (state:typeProduct[], action:PayloadAction<typeProduct>) => {
     const findproduct = state.find((product:typeProduct) => product.id === action.payload.id );
     findproduct ? false : state.push(action.payload);
     },

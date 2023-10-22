@@ -21,8 +21,8 @@ const Productpage = () => {
   const [received, setReceived] = useState<Product[] | null>(null);
   const { id } = useParams<{ id: string }>();
   const counter = useSelector((state:any) => state.counter);
-const defultcolor:string[] = useSelector((state:any) => state.publicstate.defultcolor);
-const defultsize:string[] = useSelector((state:any) => state.publicstate.defultsize);
+const defultcolor:string = useSelector((state:any) => state.publicstate.defultcolor);
+const defultsize:string = useSelector((state:any) => state.publicstate.defultsize);
   const dispatch =useDispatch()
 
   const handleClearCount = () => {
@@ -81,7 +81,7 @@ const handlecolorClick = (color:any) => {
                     <li 
                     onClick = {() => handlecolorClick(color)}
                     key={color} 
-                    className={`color ${defultcolor.includes(color) ? "active" : ""}`}
+                    className={`color ${color === defultcolor ? "active" : ""}`}
                     style={{backgroundColor:color}}
                     >
                     </li>
@@ -96,7 +96,7 @@ const handlecolorClick = (color:any) => {
                     <li 
                     onClick={() => handleSizeClick(size)} 
                     key={size} 
-                    className={`size ${defultsize.includes(size) ? "active" : ""}`}
+                    className={`size ${size === defultsize ? "active" : ""}`}
                     >
                       {size}
                     </li>
@@ -107,14 +107,13 @@ const handlecolorClick = (color:any) => {
               <Link className="addtocart" onClick={() => {
   handleClearCount();
   dispatch(addItem({
-    id: product.id,
-    name: product.name,
-    price: product.price,
-    img: product.img,
-    color: defultcolor,
-    size: defultsize,
-    count: counter,
-    catogray: []
+  id: product.id,
+  name: product.name,
+  price: product.price,
+  img: product.img,
+  color: defultcolor,
+  size: defultsize,
+  count: counter
   }));
 }} to="/cart">
   اضافة للسلة

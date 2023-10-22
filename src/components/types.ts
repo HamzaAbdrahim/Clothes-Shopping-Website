@@ -3,9 +3,8 @@
     name: string;
     price: number;
     img: string;
-    color: string[];
-    size: string[];
-    catogray:string[]
+    color: string;
+    size: string;
     count:number;
     }
     export interface typeadedProduct {
