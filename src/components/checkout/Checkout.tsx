@@ -4,7 +4,6 @@ import "../../scss/pages/_checkout.scss"
 import Formsubmit from "./Formsubmit";
 import Notedelivry from "./Notedelivry";
 import Accept from "../Dashbord/order/Accept";
-import { useEffect } from "react";
 
 const Checkout = () => {
   const succes = useSelector((state: any) => state.loding.loading);
@@ -21,9 +20,7 @@ const Checkout = () => {
     <Notedelivry />
     </div>
     )  : (
-    useEffect(() => {
     navigate("/cart")
-    },[])
     )}
     </>
   )

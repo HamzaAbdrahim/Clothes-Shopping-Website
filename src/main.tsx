@@ -28,6 +28,7 @@ import Singup from './components/Dashbord/auth/Singup';
 import Formsingup from './components/Dashbord/auth/Formsingup';
 import Login from './components/Dashbord/auth/Login';
 import Userpage from './components/userpage/Userpage';
+import Errpage from './components/Errpage';
 
 const AppLayout = () => (
   <div className="App">
@@ -41,6 +42,7 @@ const AppLayout = () => (
 const router = createBrowserRouter([
   {
   element:<AppLayout />,
+  errorElement:<Errpage />,
   children:[
   {path: "/",
   element: <div>
@@ -56,10 +58,12 @@ const router = createBrowserRouter([
   {path:"Product/:id",element:<Productpage />},
   {path:"checkout",element:<Checkout />},
   {path:"shearch",element:<Searchpage />},
+
   ]
   },
   {
   path:"/dashbord",element:<DashbordLayout /> ,
+  errorElement:<Errpage />,
   children: [
   {path:"/dashbord",element:<Home />},
   {path:"users" , element:<Users />},
@@ -70,6 +74,7 @@ const router = createBrowserRouter([
   {
   path:"auth",
   element:<Singup />,
+  errorElement:<Errpage />,
   children:[
   {path:"login" , element:<Login />},
   {path:"" , element:<Formsingup />}

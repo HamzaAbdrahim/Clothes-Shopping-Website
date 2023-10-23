@@ -77,18 +77,18 @@ const Formsubmit = () => {
       setAddressError('خانة العنوان إجبارية');
     } else {
       setAddressError('');
-      dispatch(setLoading(true));
     }
-
+    
     if (isNameValid && isPhoneValid && isOptionValid && isCountryValid && isAddressValid) {
-      event.target.reset();
-      postData(submission);
-    }
+    event.target.reset();
+    postData(submission);
   }
+}
 
-  
 
-  const postData = async (submission: CheckoutFormData) => {
+
+const postData = async (submission: CheckoutFormData) => {
+  if (submission) {
     try {
       const response = await axios.post(url, {
         name: submission.name,
@@ -99,10 +99,12 @@ const Formsubmit = () => {
         address: submission.address,
         coustmernote: submission.note,
       })
+      dispatch(setLoading(true));
       console.log(response);
     } catch (error) {
       console.error('Error making POST request:', error);
     }
+  }
   };
 
   return (

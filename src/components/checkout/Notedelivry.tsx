@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import assest from "../../assets/imges"
 import Loding from "../ourproduct/Loding";
 import {typeProduct} from "../types"
+import { Suspense } from "react";
 
 
 
@@ -17,9 +18,8 @@ const Notedelivry = () => {
     <div className="Notedelivry_container">
     <h1 className="Notedelivry_titel">المنتجات في طلبك</h1>
     <div className="product_container">
-      {cart ? 
-      (
-        cart.map((product:typeProduct) => (
+    <Suspense fallback={<Loding />}>
+        {cart.map((product:typeProduct) => (
         <div key={product.id} className="product_discrption">
         <img src={assest.product_one} alt="product_page" />
         <div className="product_content">
@@ -29,9 +29,8 @@ const Notedelivry = () => {
             <p className="product_price">{product.count}  3750 x د.ج</p>
         </div>
         </div>
-
-        ))
-      ) : <Loding />}
+        ))}
+    </Suspense>
         <h1 className="summery_order">ملخص الطلب</h1>
         <p className="product_amount">{cart.length}{" "}وحدة متوفرة<span>{total} د.ج</span></p>
         <p className="product_total">إجمالي المستحق<span>{total} د.ج</span></p>

@@ -2,11 +2,12 @@ import { useEffect, useRef, useState } from "react";
 import assest from "../../../assets/imges";
 import Sugget from "./Sugget";
 import { useSelector } from "react-redux";
+import { RootState } from "../../../store/store";
 
 const Chosecatogray = ({name , dataarray} : {name:string , dataarray:string[] }) => {
   const [show , setshow] = useState<Boolean>(false)
   const nameref = useRef<HTMLDivElement >(null);
-  const items = useSelector((state:any) => state.itemsSlice)
+  const items = useSelector((state:RootState) => state.itemsSlice.items)
   const selectedelement = dataarray.filter((ele) => items.includes(ele));
 
   

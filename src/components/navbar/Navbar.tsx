@@ -1,4 +1,4 @@
-import  { useEffect, useRef, useState , KeyboardEvent  } from 'react';
+import  { useRef, useState , KeyboardEvent  } from 'react';
 import assest from '../../assets/imges';
 import '../../scss/pages/_navbar.scss';
 import Bar from './Bar';
@@ -10,6 +10,7 @@ import { setshearchvalue } from '../../store/shearchvalue';
 import Daynamicknote from '../shered/Daynamicknote';
 import useWindowSize from '../../hooks/useWindowSize';
 import Suggetsearch from './Suggetsearch';
+import useClickOutside from '../../hooks/useclickoutside';
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [sheachclick , setsheachclick] = useState<boolean>(false);
@@ -29,19 +30,12 @@ const Navbar = () => {
     setsheachclick(prev => (!prev))
   }
 
-    useEffect(() => {
-    const handler = (e:MouseEvent)=>{
-    if(shearchref.current && !shearchref.current.contains(e.target as Node)){
-      setsheachclick(false)
-      setshowsearch(false)
-    console.log(shearchref.current);
-    }      
-    };
-    document.addEventListener("mousedown", handler);
-    return() =>{
-    document.removeEventListener("mousedown", handler);
-    }
-  });
+  const handeltoggol = () => {
+    setsheachclick(false)
+    setshowsearch(false)
+  }
+
+  const Ref = useClickOutside(handeltoggol)
 
   const handelpresenter = (e:KeyboardEvent) => {
     if (e.key === 'Enter') {
@@ -78,7 +72,7 @@ const Navbar = () => {
           </Link>
     </div>
     {size.width && size.width > 1000 ? 
-    <div ref={shearchref} onClick={handelclickshearch} onKeyDown={(e) => handelpresenter(e)} className={`search_product ${sheachclick ? "shearch_active" : ""}`}>
+    <div ref={Ref} onClick={handelclickshearch} onKeyDown={(e) => handelpresenter(e)} className={`search_product ${sheachclick ? "shearch_active" : ""}`}>
     <input onChange={(e) => dispatch(setshearchvalue(e.target.value)) } type="search" name="search_product" id="search" placeholder="ابحث عن المنتجات..." />
     <Suggetsearch changestate = {setsheachclick} />
     <img src={assest.shearch} alt="shearch" />

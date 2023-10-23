@@ -43,6 +43,10 @@ import add_icon from "./add.png"
 import singup from "./Saly-10.png"
 import show from "./show.png";
 import hide  from "./hide.png";
+import errpage_img  from "./err.svg";
+import arrow_back from "./Group 1.svg";
+
+
 
 
 
@@ -103,7 +107,9 @@ Yes,
 add_icon,
 singup,
 show,
-hide
+hide,
+errpage_img,
+arrow_back 
 
 }
 export default assest

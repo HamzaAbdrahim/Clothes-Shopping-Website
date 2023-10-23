@@ -127,7 +127,11 @@ const Userpage = () => {
   <Input dis ={formdate?.password !== "كلمة السر" ? "#FF3333" : "#000000"} name = "password" value = {user.password} label= {formdate?.password} type = "text" />
   <div className="buttons">
   <input type="submit" value="حفظ التعديلات"  />
-  <input type="submit" value="الذهاب الي لوحة التحكم" />
+  {useracount.map((item) => 
+  <input type="submit" onClick={() => Navigate(item.allwedtodashbord === true ? '/dashbord' :'/')} value={
+    item.allwedtodashbord === true ? "الذهاب الي لوحة التحكم" :'الذهاب الي الصفحة الرئسية'}
+  />
+  )}
   <button className="Logout" onClick={Logout}>تسجيل الخروج</button>
   </div>
   

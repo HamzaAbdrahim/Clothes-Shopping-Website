@@ -78,7 +78,7 @@ const Login = () => {
     <Input dis ={email !== "البريد الإكتروني" ? "#FF3333" : "#000000"}  titel = "البريد الإكتروني" className = "email" placeholder = "ادخل البريد الإكتروني الخاص بك" label = {email} name  = "email"  type = "text"/>
     <Input dis ={password !== "كلمة السر" ? "#FF3333" : "#000000"}  titel = " كلمة المرور" className = "password" placeholder = "ادخل كلمة المرور الخاصة بك" label = {password} name  = "password"  type = "password"/>
     <p className="to_login">ليس لديك حساب<Link to = "/auth">انشاء حساب جديد</Link></p>
-    <Submit value="تسجيل حساب جديد"
+    <Submit value="تسجيل الدخول"
     click={() => checkemailpasswordvaldition} />
     </Form>
     </div>

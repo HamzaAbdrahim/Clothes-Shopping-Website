@@ -94,6 +94,7 @@ const singupauth = async (submission: { email: string, password: string , name:s
       password: "كلمة السر"
     }));
   }
+
   if (re_write_password.length === 0) {
     setFormData(prevState => ({
       ...prevState,
@@ -123,8 +124,6 @@ const singupauth = async (submission: { email: string, password: string , name:s
       imgState: true
     }));
   }
-
-  console.log(formData.uniqimg);
   
 
   const sandDatecondition:boolean = formData.email === "البريد الإكتروني" 
@@ -155,10 +154,8 @@ const singupauth = async (submission: { email: string, password: string , name:s
           email: email.toLowerCase(),
           password: password.toLowerCase(),
           allwedtodashbord:false,
-          userimg: formData.uniqimg
         });
         console.log(postResponse);
-        alert('POST request successful');
         Navigate('login')
         setFormData(prevState => ({
           ...prevState,

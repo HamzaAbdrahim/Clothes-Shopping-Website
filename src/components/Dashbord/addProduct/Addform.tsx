@@ -2,7 +2,7 @@ import Input from "../../shered/Input"
 import { Form } from 'react-router-dom'
 import Shadow from "../../shered/Shadow";
 import Closetap from "./Closetap";
-import { useEffect, useRef, useState } from "react";
+import {useState } from "react";
 import Chosecatogray from "./Chosecatogray";
 import Importimg from "./Importimg";
 import Submit from "../../shered/Submit";
@@ -13,40 +13,24 @@ import { useDispatch, useSelector } from "react-redux";
 import { catogray, colorNames, sizesArray } from "./Selectarray";
 import Loding from "../../shered/Loding";
 import { clearItem } from "../../../store/setadedarray";
+import useClickOutside from "../../../hooks/useclickoutside";
+import { RootState } from "../../../store/store";
 
 
 const Addform = ({clickshowtap } : {clickshowtap:() => void}) => {
   const [loding , setloding] = useState<Boolean>(false)
-  const tapRef = useRef<HTMLDivElement >(null);
   const [uniqimg ,  setuniqimg] = useState<string>();
   const dispatch = useDispatch();
   const [err , seterr] = useState<string>("")
-  const selecteditem = useSelector((state:any) => state.itemsSlice)
+  const selecteditem = useSelector((state:RootState) => state.itemsSlice.items)
   const lodingstate = useSelector((state:{loding:boolean}) => state.loding)
   const dinarPriceRegex = /^\d+(?:\.\d{1,2})?$/;
   const selectedcatogray =  selecteditem.filter((ele:string) => catogray.includes(ele));
   const selectedcolors = selecteditem.filter((ele:string) => colorNames.includes(ele));
   const selectedsizes = selecteditem.filter((ele:string) => !catogray.includes(ele) && !colorNames.includes(ele));
   const conditionpushform:boolean = err !== "" && selectedcatogray.length > 0 && selectedcolors.length > 0 && selectedsizes .length > 0 ;
-  
-  
-  console.log(lodingstate);
-  console.log(selecteditem);
-  
 
-
-  useEffect(() => {
-    const handler = (e:MouseEvent)=>{
-      if(tapRef.current && !tapRef.current.contains(e.target as Node)){
-        clickshowtap()
-        console.log(tapRef.current);
-      }      
-    };
-    document.addEventListener("mousedown", handler);
-    return() =>{
-      document.removeEventListener("mousedown", handler);
-    }
-  });
+  const tapRef = useClickOutside(clickshowtap)
 
 
   const getimg = (image:string | undefined) => {
@@ -138,7 +122,7 @@ const handelsadedate = async (subdate:adedproduct) => {
     <Chosecatogray  name = "الأنواع"  dataarray = {["الحجابات" , "الخيمارات"]} />
     <Chosecatogray  name = "الأحجام"  dataarray = {sizesArray} />
     <Chosecatogray  name = "الألوان"  dataarray = {colorNames} />
-<div style={{margin:'1rem auto'}}>
+    <div style={{margin:'3rem 2rem'}}>
     <Submit click = {() => console.log('hamza')} value = "إضافة المنتج" />
     <img src={uniqimg} alt="" />
 </div>

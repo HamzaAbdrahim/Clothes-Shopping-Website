@@ -20,13 +20,15 @@
     width: 50%;
     position: relative;
     padding: 1rem;
-    @include c.none(section_one , map-get(b.$breackpoints , lg));
+    @media (max-width:map-get(b.$breackpoints , lg)) {
+    display: none;
+    }
     .singup_img {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        max-height: 20rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    max-height: 20rem;
     }
     }
     .form {

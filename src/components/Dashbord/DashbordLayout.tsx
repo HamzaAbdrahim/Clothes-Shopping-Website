@@ -14,7 +14,7 @@ const DashbordLayout = () => {
     if (useracount.map((item) => item.allwedtodashbord !== true)) {
         Navigate('/')
     }
-    }, [useracount , Navigate ])
+    }, [useracount])
     
     
     return (

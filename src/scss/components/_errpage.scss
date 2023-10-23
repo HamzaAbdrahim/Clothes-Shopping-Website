@@ -1,0 +1,34 @@
+@use "../abstracts" as b;
+@use "../components" as c;
+
+
+.err_page {
+    padding: 1.5rem;
+    @include c.flex_space(center);
+    flex-direction: column;
+    .opps {
+    @include b.link();
+    font-size:1.5rem !important;
+    margin-bottom: 1rem
+    }
+    .err_titel {
+    @include b.heading_3();
+    }
+    img {
+        max-width: 100%;
+        margin-top: 5rem
+    }
+    .err_button {
+        @include b.link();
+        padding-bottom: .5rem;
+        border-bottom: solid  0.125rem ;
+        font-size:1.5rem !important;
+        margin-top: 3rem;
+        color: black;
+        cursor: pointer;
+        img {
+            margin-right: .5rem;
+        }
+    }
+
+}
