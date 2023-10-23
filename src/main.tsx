@@ -62,7 +62,7 @@ const router = createBrowserRouter([
   ]
   },
   {
-  path:"/dashbord",element:<Errpage /> ,
+  path:"/dashbord",element:<DashbordLayout /> ,
   errorElement:<Errpage />,
   children: [
   {path:"/dashbord",element:<Home />},
