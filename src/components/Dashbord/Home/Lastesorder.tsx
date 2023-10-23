@@ -3,7 +3,7 @@ import {useEffect } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
 import { getorders } from "../../../store/useorderfatch";
-import Loding from "../../ourproduct/Loding";
+import Loding from "../../home/ourproduct/Loding";
 
 const Lastesorder = () => {
   const orders = useSelector((state:RootState) => state.orders.data)

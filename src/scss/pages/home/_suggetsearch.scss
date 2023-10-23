@@ -1,0 +1,33 @@
+@use "../../abstracts" as b;
+@use "../../components" as c;
+@use "../../utilities" as u;
+
+.search_bar {
+position: absolute;
+z-index: 10;
+top: 4rem;
+overflow-y: scroll;
+background-color: white;
+margin-top: -5px;
+border-radius: 0.625rem;
+width: 100%;
+left: 0;
+padding: .3rem ;
+width: 100%;
+span {
+height: 3rem;
+display: flex;
+align-items: center;
+font-size: 1.6rem;
+padding: 0  .6rem;
+font-weight: 600;
+transition-duration: 200ms;
+background-color: map-get(b.$colors, lightgray_one);
+border-radius: 0.625rem;
+margin-top: .3rem;
+cursor: pointer;
+&:hover {
+    background-color: #ccc;
+}
+}
+}
