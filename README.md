@@ -29,10 +29,10 @@ The clothes shopping website consists of the following pages:
 - **Homedashbord**:this page display the number of siles and and orderds and the accpted orders from the admin.
 - **Order Management**:allows the admin to see the orders information that can be accept or deleted.
 - **User Management**:allows the admin can view user profiles and he can give them promotions.
-- **add product**:allows the admin to add product and delet and edit them .
--  
-- 
-- 
+- **add product**:allows the admin to add product and delet and edit them.
+
+
+
 ## Features
 
 The clothes shopping website offers the following features:
