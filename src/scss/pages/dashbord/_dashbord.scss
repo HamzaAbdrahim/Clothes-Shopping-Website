@@ -5,6 +5,7 @@
     background-color: map-get(b.$colors, dash_color );
     display: flex;
     align-items: start;
+    height: 100vh;
     .outlet {
     margin:  1rem 1.5rem;
     width: 100%;

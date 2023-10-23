@@ -2,40 +2,24 @@ import { useDispatch, useSelector } from "react-redux";
 import assest from "../../../assets/imges"
 import Daynamicknote from "../../shered/Daynamicknote"
 import { AppDispatch, RootState } from "../../../store/store";
-import { usertype } from "../../types";
-import { useEffect, useState } from "react";
+import { order, usertype } from "../../types";
+import { useEffect } from "react";
 import { getusers } from "../../../store/userslice";
-import axios from "axios";
 
 const Usersetting = () => {
     const users = useSelector((state: RootState) => state.users.data);
-    const [orderid, setorderid] = useState<number[]>();
     const dispatch:AppDispatch = useDispatch();
     const email:any = localStorage.getItem('authTokenLogin')
     const chosenemail = users.filter((user:usertype) => user.email === email );
+    const orders = useSelector((state:RootState) => state.orders.data)
+
 
     console.log(chosenemail);
 
     useEffect(() => {
     dispatch(getusers());
-    }, [1]);
+    }, []);
 
-    const getordersId = async () => {
-        try {
-          const response = await axios.get(`http://localhost:3000/orderId`);
-          const orderIds = response.data.map((order:any) => order.orderId);
-          const uniqueOrderIds = orderIds.filter((value: string, index: number, self: string | any[]) => {
-          return self.indexOf(value) === index;
-          });
-          setorderid(uniqueOrderIds);
-          console.log('GET request successful');
-        } catch (error) {
-          console.error('Error making GET request:', error);
-        }
-      }
-      useEffect(() => {
-        getordersId();
-      } , [0])
     
     
     return (
@@ -43,7 +27,7 @@ const Usersetting = () => {
     <h1 className="titel">لوحة التحكم</h1>
     <div className="user_info">
     <div>
-    <Daynamicknote path={"orders"} img={assest.notification} arraylength={orderid?.length}   />
+    <Daynamicknote path={"orders"} img={assest.notification} arraylength={orders.filter((order:order) => order.orderstate === false)?.length}   />
     </div>
     {chosenemail.map((user:usertype) => (
         <>

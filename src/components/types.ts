@@ -31,6 +31,7 @@
     bladay:String,
     address:String,
     coustmernote:String,
+    orderstate:boolean
     }
     export interface usertype {
     id:number,

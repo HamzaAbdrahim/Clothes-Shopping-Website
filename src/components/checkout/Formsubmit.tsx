@@ -98,6 +98,7 @@ const postData = async (submission: CheckoutFormData) => {
         bladay: submission.description,
         address: submission.address,
         coustmernote: submission.note,
+        orderstate:false
       })
       dispatch(setLoading(true));
       console.log(response);

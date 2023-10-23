@@ -1,65 +1,50 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { handremoveorder } from "../../shered/Deletitem";
-import Accept from "./Accept";
 import { useDispatch, useSelector } from "react-redux";
 import {getorders} from "../../../store/useorderfatch"
-import axios from "axios";
 import { order } from "../../types";
-import { orderIds } from "../Types";
 import { AppDispatch, RootState } from "../../../store/store";
+import Loding from "../../shered/Loding";
+import axios from "axios";
 
 const Fetchdate = () => {
-
-  const [show, setshow] = useState<boolean>(false);
-
-  const orders = useSelector((state:RootState) => state.orders.data)
-
-  const [orderid, setorderid] = useState<number[]>();
-    
   const dispatch:AppDispatch = useDispatch();
+  const orders = useSelector((state:RootState) => state.orders.data)
+  const ordersloading = useSelector((state:RootState) => state.orders.loading)
 
-console.log(orderid);
+    
 
   useEffect(() => {
     dispatch(getorders());
-    getordersId()
   }, []);
 
   const handelaccept = async (id:number) => {
-    try {
-    const respose:number[] = await axios.post(`http://localhost:3000/orderId` , {
-    orderId:id,
-    })
-    console.log(respose);
-    console.log('POST request successful');} catch (error) 
-    {
-    console.error('Error making POST request:', error);
-    } 
-    setshow((prev:boolean) => (!prev))
+    const url = `http://localhost:3000/order/${id}`;
+    const changedItem = {
+      orderstate: true,
+    };
+    const handleEdit = async () => {
+      try {
+      await axios.patch(url, changedItem);
+      window.location.reload();
+      alert('Item edited successfully');
+      } catch (error) {
+      console.error('Error editing item:', error);
+      }
+    };
+    handleEdit()
   }
 
+  if (ordersloading) return <Loding />
+
   
-  const getordersId = async () => {
-    try {
-      const response = await axios.get(`http://localhost:3000/orderId`);
-      const orderIds = response.data.map((order: orderIds) => order.orderId);
-      const uniqueOrderIds = orderIds.filter((value: string, index: number, self: string | any[]) => {
-      return self.indexOf(value) === index;
-      });
-      setorderid(uniqueOrderIds);
-      console.log('GET request successful');
-    } catch (error) {
-      console.error('Error making GET request:', error);
-    }
-    setshow(prev => !prev);
-  }
+
   return (
     <>
-    <Accept to = "../" state = {show}  />
     {orders.length > 0 ? (
       <div className="order_container" >
-        {orders.filter((order:order) => !orderid?.includes(order.id)).map((order:order) => (
-          <div className="order_cart" key={order.id}>
+        {orders.filter((order:order) => order.orderstate === false).map((order:order) => (
+        <div className="order_cart" key={order.id}>
         <h2  className="order-titel">معلومات عن الطلب</h2>
         <p className="order_id">Order ID: {order.id}</p>
         <div className="order">

@@ -8,10 +8,11 @@ import Publicuser from "./users/Publicuser";
 const DashbordLayout = () => {
     const Navigate = useNavigate();
     const [ useracount ] = Publicuser()
+    const allowed:boolean[] = useracount.map((item) => item.allwedtodashbord);
     console.log();
     
     useEffect(() => {
-    if (useracount.map((item) => item.allwedtodashbord !== true)) {
+    if (!allowed.every((value) => value === true)) {
         Navigate('/')
     }
     }, [useracount])

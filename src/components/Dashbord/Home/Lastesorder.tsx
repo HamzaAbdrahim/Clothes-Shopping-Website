@@ -1,42 +1,22 @@
 import { order } from "../../types";
-import axios from "axios";
-import { useState, useEffect } from "react";
-import {orderIds} from "../Types"
+import {useEffect } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../store/store";
+import { getorders } from "../../../store/useorderfatch";
+import Loding from "../../ourproduct/Loding";
 
 const Lastesorder = () => {
-  const [orderdate, setOrderdate] = useState([]);
-  const [ids, setids] = useState([]);
+  const orders = useSelector((state:RootState) => state.orders.data)
+  const ordersloading = useSelector((state:RootState) => state.orders.loading)
 
-  console.log(orderdate);
-  
-  const getordersId = async () => {
-  try {
-    const response = await axios.get(`http://localhost:3000/orderId`);
-    const orderIds = response.data.map((order: orderIds) => order.orderId);
-    const uniqueOrderIds = orderIds.filter((value: string, index: number, self: string | any[]) => {
-    self.indexOf(value) === index;
-  });
-  setids(uniqueOrderIds)
-    console.log('GET request successful');
-  } catch (error) {
-    console.error('Error making GET request:', error);
-  }
-}
 
-const getorders = async () => {
-  try {
-    const response = await axios.get(`http://localhost:3000/order/${ids.join(',')}`);
-    console.log('GET request successful');
-    setOrderdate(response.data);
-  } catch (error) {
-    console.error('Error making GET request:', error);
-  }
-};
 
 useEffect(() => {
-  getordersId()
   getorders()
 } , [])
+
+  if (ordersloading) return <Loding />
+
 
   return (
     <div className="table-container">
@@ -52,7 +32,7 @@ useEffect(() => {
           </tr>
         </thead>
         <tbody>
-          {orderdate.map((latestOrder: order, index: number) => (
+          {orders.filter((order:order) => order.orderstate === true).map((latestOrder: order, index: number) => (
             <tr key={index}>
               <td>{latestOrder.name}</td>
               <td className="state">{latestOrder.phonenumber}</td>
