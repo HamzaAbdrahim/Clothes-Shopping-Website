@@ -1,4 +1,4 @@
-<h1 align="center">clothes shopping website</h1>
+<h1 align="center">Clothes Shopping Website</h1>
 
 <p align="center">
   <img src="" alt="">
