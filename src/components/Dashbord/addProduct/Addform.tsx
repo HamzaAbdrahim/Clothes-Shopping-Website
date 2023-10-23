@@ -23,7 +23,6 @@ const Addform = ({clickshowtap } : {clickshowtap:() => void}) => {
   const dispatch = useDispatch();
   const [err , seterr] = useState<string>("")
   const selecteditem = useSelector((state:RootState) => state.itemsSlice.items)
-  const lodingstate = useSelector((state:{loding:boolean}) => state.loding)
   const dinarPriceRegex = /^\d+(?:\.\d{1,2})?$/;
   const selectedcatogray =  selecteditem.filter((ele:string) => catogray.includes(ele));
   const selectedcolors = selecteditem.filter((ele:string) => colorNames.includes(ele));
