@@ -1,6 +1,7 @@
 <h1 align="center">Clothes Shopping Website</h1>
 
 <p align="center">
+   <img src="https://github.com/ess-maker/Ecommerce_hijab/blob/main/src/assets/website_pages/main_img.png" alt="">
   <img src="https://github.com/ess-maker/Ecommerce_hijab/blob/main/src/assets/website_pages/auth_page.png" alt="">
   <img src="https://github.com/ess-maker/Ecommerce_hijab/blob/main/src/assets/website_pages/dashbordPage_five.png" alt="">
   <img src="https://github.com/ess-maker/Ecommerce_hijab/blob/main/src/assets/website_pages/dashbordPage_one.png" alt="">
@@ -12,6 +13,7 @@
   <img src="https://github.com/ess-maker/Ecommerce_hijab/blob/main/src/assets/website_pages/main_img_thore.png" alt="">
   <img src="https://github.com/ess-maker/Ecommerce_hijab/blob/main/src/assets/website_pages/main_img_three.png" alt="">
   <img src="https://github.com/ess-maker/Ecommerce_hijab/blob/main/src/assets/website_pages/main_img_two.png" alt="">
+  <img src="https://github.com/ess-maker/Ecommerce_hijab/blob/main/src/assets/website_pages/errpage.png" alt="">
   
 </p>
 
