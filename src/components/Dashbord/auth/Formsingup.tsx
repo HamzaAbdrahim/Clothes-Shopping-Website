@@ -185,7 +185,6 @@ console.log(formData.uniqimg);
     <Input dis ={formData.reWritePassword !== "اعد كلمة المرور" ? "#FF3333" : "#000000"} titel = " كلمة المرور" className = "re-write-password" placeholder = "اعد كتابة كلمة المرور" label = {formData.reWritePassword} name  = "re-write-password"  type = "password"/>
     <p className="to_login">هل لديك حساب بالفعل <Link to = "login">تسجيل دخول</Link></p>
     <Submit  value="تسجيل حساب جديد" click={() =>singupauth} />
-    <img src={formData.uniqimg} alt="" />
     </Form>
     </>
   )

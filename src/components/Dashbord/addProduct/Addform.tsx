@@ -123,7 +123,6 @@ const handelsadedate = async (subdate:adedproduct) => {
     <Chosecatogray  name = "الألوان"  dataarray = {colorNames} />
     <div style={{margin:'3rem 2rem'}}>
     <Submit click = {() => console.log('hamza')} value = "إضافة المنتج" />
-    <img src={uniqimg} alt="" />
 </div>
     </Form>
     </div>

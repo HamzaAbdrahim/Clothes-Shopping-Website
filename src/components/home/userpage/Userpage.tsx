@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../../store/store";
 import { editdate, usertype } from "../../types";
 import Input from "../../shered/Input";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { getusers } from "../../../store/userslice";
 import "../../../scss/pages/home/_userpage.scss"
 import { Form, useNavigate } from "react-router-dom";
@@ -95,8 +95,7 @@ const Userpage = () => {
       const response = await axios.patch(`http://localhost:3000/users/${useracount.map((item) => item.id)}`, {name:validDate.name , email:validDate.email, password:validDate.password});
       console.log('Element updated:', response.data);
       setloding(false)
-      Navigate("/");
-      window.location.reload
+      window.location.reload()
     } catch (error) {
       console.error('Error updating element:', error);
     }
@@ -115,7 +114,7 @@ const Userpage = () => {
   <section className="user_page">
   <h1 className="user_titel">الملف الشخصي</h1>
   {useracount.map((user:usertype) => (
-  <>
+  <Suspense fallback = {<Loding />}>
   <div aria-hidden="true" key={user.id} data-testid="image-wrapper" className="img_wrapper">
   <img src={(localStorage.getItem('userimg')!)} alt="img" />
   </div>
@@ -136,7 +135,7 @@ const Userpage = () => {
   </div>
   
   </Form>
-  </>
+  </Suspense>
   ))}
   </section>
   </>
