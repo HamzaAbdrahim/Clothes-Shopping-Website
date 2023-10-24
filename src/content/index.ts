@@ -34,7 +34,7 @@ export const bar:bar[] = [
     },
     {
         titel:"سياسة الإستبدال و الإسترجاع",
-        icon:assest.return_policy,
+        icon:assest.delivery,
         path:"return-policy"
     },
     {
