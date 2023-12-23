@@ -9,6 +9,7 @@ import setloding from './setloding';
 import fetchorders from "./useorderfatch";
 import shearchvalue from './shearchvalue';
 import userslice from "./userslice"
+import selectedOption from './selectedOption';
 
 export const store = configureStore({
   reducer: {
@@ -21,6 +22,7 @@ export const store = configureStore({
   orders:fetchorders,
   shearchvalue:shearchvalue,
   users:userslice,
+  selectedOption:selectedOption
   },
 });
 

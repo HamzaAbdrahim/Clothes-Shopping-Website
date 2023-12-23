@@ -8,7 +8,7 @@
     count:number;
     }
     export interface typeadedProduct {
-    id: number;
+    id?: number;
     name: string;
     price: number;
     img: string;
@@ -34,12 +34,12 @@
     orderstate:boolean
     }
     export interface usertype {
-    id:number,
-    name:string,
+    [x: string]: any;
+    Name:string,
     email:string
-    password:string,
-    img:string
-    allwedtodashbord:boolean
+    phone: string;
+    id?:number|string,
+    allwedtodashbord?:boolean
     }
     export interface editdate {
       name:string,
@@ -58,4 +58,25 @@
     price: number;
     img: string;
     sizes: string[];
+  }
+
+  export type CheckoutFormData = {
+    name: string;
+    phone: string;
+    secondphone: string;
+    bladay: string;
+    note: string;
+  };
+
+export type adedproduct = {
+Product_name:string|null
+Product_price:number
+Product_img:File|undefined
+Product_color:string[]
+Product_size:string[]
+Product_catogray:string[]
+Product_discount:number,
+Product_amount:number,
+Product_afterdiscount:number
+
   }

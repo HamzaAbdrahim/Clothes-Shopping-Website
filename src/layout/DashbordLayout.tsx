@@ -1,11 +1,11 @@
-import { Outlet, useNavigate } from "react-router-dom";
-import Sidebar from "./sidebar/Sidebar"
-import "../../scss/pages/dashbord/_dashbord.scss"
 import { useEffect } from "react";
-import Usersetting from "./Home/Usersetting";
-import Publicuser from "./users/Publicuser";
+import { useNavigate, Outlet } from "react-router-dom";
+import Usersetting from "../components/Dashbord/Home/Usersetting";
+import Sidebar from "../components/Dashbord/sidebar/Sidebar";
+import Publicuser from "../components/Dashbord/users/Publicuser";
+import '../scss/pages/dashbord/_dashbord.scss'
 
-const DashbordLayout = () => {
+export default function Dashbordlayout() {
     const Navigate = useNavigate();
     const [ useracount ] = Publicuser()
     const allowed:boolean[] = useracount.map((item) => item.allwedtodashbord);
@@ -16,8 +16,6 @@ const DashbordLayout = () => {
         Navigate('/')
     }
     }, [useracount])
-    
-    
     return (
     <div className="dashbord">
     <Sidebar />
@@ -29,4 +27,4 @@ const DashbordLayout = () => {
     );
 }
 
-export default DashbordLayout
+

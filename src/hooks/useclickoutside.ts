@@ -25,3 +25,4 @@ const useClickOutside = (onClickOutside: ClickOutsideHandler) => {
 };
 
 export default useClickOutside;
+

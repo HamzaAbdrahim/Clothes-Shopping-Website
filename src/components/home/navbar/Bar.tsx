@@ -6,7 +6,6 @@ const Bar = () => {
     const Navigate = useNavigate();
 
   return (
-    <div className="bar">
       <ul>
         {bar.map((ele , index) => (
           <li onClick={() => Navigate(ele.path)} key={index} className={`bar_element${index}`}>
@@ -15,7 +14,6 @@ const Bar = () => {
             </li>
         ))}
       </ul>
-    </div>
   )
 }
 

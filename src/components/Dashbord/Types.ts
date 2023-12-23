@@ -40,3 +40,15 @@ product_amount: string;
     name:string,
     reWritePassword:string
   }
+  export type Mysingup_types = {
+    id?:any
+    name: string,
+    email:string,
+    password: string,
+    phone:string
+  }
+
+  export type Login_types = {
+    email:string,
+    password: string,
+  }

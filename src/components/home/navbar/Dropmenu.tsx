@@ -21,7 +21,6 @@ const Dropmenu = (prop:any) => {
           <li key={index} 
           className={`bar_element${index}`}>
             <h1>{ele.titel}</h1>
-            <img src={ele.icon} alt="icon" />
             </li>
         ))}
       </ul>

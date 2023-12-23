@@ -4,6 +4,7 @@ import "../../../scss/pages/dashbord/_addproduct.scss"
 import Addform from "./Addform"
 import { useState } from "react";
 import Curddate from "./productadd/Curddate";
+import { ToastContainer } from "react-toastify";
 const Addproduct = () => {
 const [show , setshow] = useState<boolean>(false)
 
@@ -22,6 +23,7 @@ const handelclick = () => {
   <Addform  clickshowtap = {handelclick} />
   ) : ''}
   <Curddate />
+  <ToastContainer position="top-right"  />
   </div>
   )
 }

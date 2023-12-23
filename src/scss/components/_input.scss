@@ -18,7 +18,6 @@
 }
 
 .label_sherd {
-    color: map-get(b.$colors, dark-red );
     font-size:1rem;
     font-weight: 800;
     line-height: 120%;
@@ -30,5 +29,9 @@
     font-family: 'Cairo', sans-serif;
     height: 1.5rem;
     margin-top: .5rem;
+    width: 100%;
 }
+}
+.label_Err {
+    color: map-get(b.$colors, dark-red ) !important;
 }

@@ -5,9 +5,8 @@ import "../../scss/components/_errpage.scss"
 const Errpage = () => {
     return (
     <section className="err_page">
-    <p className="opps">اوبس</p>
     <h1 className="err_titel">نحن نعمل علي حلاالمشكلة</h1>
-    <img src={assest.errpage_img} alt="errpage" />
+    <img src={assest.errpage_img} loading="lazy" alt="errpage" className="err_img" />
     <NavLink to="/" className="err_button">الصفحة الرئسية<img src={assest.arrow_back} alt="arrow_back}" /></NavLink>
     </section>
     )

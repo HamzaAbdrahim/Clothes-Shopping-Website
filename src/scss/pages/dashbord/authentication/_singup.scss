@@ -38,7 +38,7 @@
     .form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
     width: 50%;
     @media (max-width:map-get(b.$breackpoints , lg)) {
     width: 100%;
@@ -71,3 +71,18 @@
     }
     }
 }
+
+
+.err_masseg {
+padding-top: 1.25rem;
+padding-bottom: 1.25rem; 
+padding-left: 1.5rem;
+padding-right: 1.5rem; 
+border-radius: 0.5rem; 
+font-size: 1rem;
+line-height: 1.5rem; 
+color: white;
+background-color:rgb(220 38 38) ;
+margin: .5rem 0;
+    }
+    

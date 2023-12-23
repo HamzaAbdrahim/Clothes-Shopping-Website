@@ -16,6 +16,7 @@ $c:0.4rem;
     margin: auto;
     .user_titel {
         @include b.heading_3();
+        margin-bottom: .5rem;
     }
     .img_wrapper {
     -webkit-box-align: center;
@@ -43,29 +44,17 @@ $c:0.4rem;
     left: 0px;
     }
     }
-    .inputs {
-    margin-bottom: .5rem;
-    label {
+    .button_container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
         width: 100%;
-        display: block;
-        input {
-            width: 98%;
+        margin-top: 1rem;
+        button {
+            width: 100%;
         }
+
+
     }
     }
-    .buttons {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap:1rem;
-    justify-content: space-between;
-    input {
-    width: 47%;
-    margin: .5rem 0  0 0 !important;
-    }
-    .Logout {
-    @include c.button(#000,#fff );
-    width:100%;
-    }
-    }
-}
